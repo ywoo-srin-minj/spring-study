@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Getter     //변수의 Getter 자동 생성
 @Setter     //변수의 Setter 자동 생성 -> 이후 name과 password만 변경가능하도록 작성?
 @AllArgsConstructor //클래스의 모든 변수를 멤버변수로 받는 생성자
-public class User {
+public class UserSrin {
     @Id //PK지정
     @GeneratedValue(strategy = GenerationType.IDENTITY)     //기본키 생성을 데이터 베이스에 위임(MySQL - Auto_increment를 사용하여 기본키 생성)
     private int id;
