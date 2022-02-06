@@ -1,6 +1,6 @@
-package entity.user_minj.repository;
+package com.second.spring_study.entity.user_minj.repository;
 
-import entity.user_minj.User;
+import com.second.spring_study.entity.user_minj.User;
 import org.springframework.data.repository.CrudRepository;
 
 public interface UserRepository extends CrudRepository<User, Long> {
