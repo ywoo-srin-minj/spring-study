@@ -7,7 +7,7 @@
   - [일정](https://ywoo-srin-minj.notion.site/eeeb3b94af2f435e893943c958f900c9)
   - [회의록](https://ywoo-srin-minj.notion.site/3af3fafb3d7542d5aa0b5dccc34d4e65)
   
-  ---
+  
 ## 1차 스프린트
 - 회원관리 디비 설계, API 설계
 - #3, #4 개인 클래스 생성 + 엔티티 설계 (서비스 / 엔티티 / 컨트롤러)
