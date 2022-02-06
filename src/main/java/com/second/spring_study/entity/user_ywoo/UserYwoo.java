@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Getter
-@Table(name="user")
+@Table()
 
 public class UserYwoo {
     @Id
@@ -14,7 +14,7 @@ public class UserYwoo {
     private Long id;
 
     @Column(length = 30, unique = true, nullable = false, name = "user_id")
-    private Long user_id;
+    private String user_id;
 
     @Column(length = 10, nullable = false, name = "user_name")
     private String user_name;
@@ -22,4 +22,11 @@ public class UserYwoo {
     @Column(length = 30, nullable = false, name = "user_password")
     private String user_password;
 
+    public static UserYwoo createUser(String user_id, String user_name, String user_password){
+        UserYwoo userYwoo = new UserYwoo();
+        userYwoo.user_id = user_id;
+        userYwoo.user_name=user_name;
+        userYwoo.user_password=user_password;
+        return userYwoo;
+    }
 }

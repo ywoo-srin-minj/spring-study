@@ -21,4 +21,12 @@ public class UserMinj {
     @Column(nullable = false, length = 10)
     private String user_name;
 
+    public static UserMinj createUser(String user_id, String user_name, String user_password) {
+        UserMinj userMinj = new UserMinj();
+        userMinj.user_id = user_id;
+        userMinj.user_name = user_name;
+        userMinj.user_password = user_password;
+        return userMinj;
+    }
+
 }
