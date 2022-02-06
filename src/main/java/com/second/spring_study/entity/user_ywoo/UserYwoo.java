@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Getter
 @Table(name="user")
 
-public class User {
+public class UserYwoo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //AUTO_INCREMENT
     private Long id;
