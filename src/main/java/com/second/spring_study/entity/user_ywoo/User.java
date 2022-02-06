@@ -1,4 +1,4 @@
-package entity.user_ywoo;
+package com.second.spring_study.entity.user_ywoo;
 
 import lombok.Getter;
 
