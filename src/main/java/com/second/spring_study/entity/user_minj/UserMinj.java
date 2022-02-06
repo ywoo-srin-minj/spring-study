@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Getter
 @Entity
-public class User {
+public class UserMinj {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
