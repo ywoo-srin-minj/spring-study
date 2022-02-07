@@ -18,4 +18,11 @@ public class UserMinjService {
         userRepository.save(user);
     }
 
+    @Transactional
+    public void deleteUser(long id){
+        // 없는 아이디일 경우 추후에 예외처리 진행
+        //userRepository.findById(id).orElseThrow();
+        userRepository.deleteById(id);
+    }
+
 }
