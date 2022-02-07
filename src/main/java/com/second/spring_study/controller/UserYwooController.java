@@ -15,4 +15,9 @@ public class UserYwooController {
     public void createUser(@RequestBody UserRequestDto userRequestDto){
         userYwooService.createUser(userRequestDto);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable long id){
+        userYwooService.deleteUser(id);
+    }
 }
