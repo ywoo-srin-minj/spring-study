@@ -16,7 +16,7 @@ import javax.persistence.*;
 public class UserSrin {
     @Id //PK지정
     @GeneratedValue(strategy = GenerationType.IDENTITY)     //기본키 생성을 데이터 베이스에 위임(MySQL - Auto_increment를 사용하여 기본키 생성)
-    private int id;
+    private Long id;
 
     //name속성을 명시하지 않으면 칼럼변수의 이름으로 DB에 생성됨(카멜케이스라면 _형식으로 작성하는것이 좋음)
     //현재 칼럼 변수는 _형식이므로 굳이 작성하지 않아도 됨
@@ -37,6 +37,8 @@ public class UserSrin {
         userSrin.user_password = user_password;
         return userSrin;
     }
+
+
 /*
     //직접 작성(window 단축키 Alt + insert)
     //생성자

@@ -1,6 +1,7 @@
 package com.second.spring_study.controller;
 
 import com.second.spring_study.dto.request.srin.UserRequestDto;
+import com.second.spring_study.entity.user_srin.UserSrin;
 import com.second.spring_study.service.UserSrinService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -14,5 +15,10 @@ public class UserSrinController {
     @PostMapping()
     public void createUser(@RequestBody UserRequestDto userRequestDto){
         userSrinService.createUser(userRequestDto);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable long id){
+        userSrinService.deleteUser(id);
     }
 }

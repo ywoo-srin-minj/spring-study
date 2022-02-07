@@ -6,4 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface UserSrinRepository extends CrudRepository<UserSrin, Long> {
     UserSrin save(UserRequestDto userRequestDto);
+
+    @Override
+    void deleteById(Long id);
 }
