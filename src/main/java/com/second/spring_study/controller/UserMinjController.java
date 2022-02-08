@@ -28,7 +28,12 @@ public class UserMinjController {
     }
 
     @GetMapping()
-    public List<UserResponseDto> selectUser(){
+    public List<UserResponseDto> selectUser() {
         return userMinjService.selectUser();
+    }
+
+    @PostMapping("{id}")
+    public UserResponseDto detailsUser(@PathVariable @Valid long id) {
+        return userMinjService.detailsUser(id);
     }
 }

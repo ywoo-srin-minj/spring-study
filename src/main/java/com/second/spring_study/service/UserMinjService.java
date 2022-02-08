@@ -5,10 +5,12 @@ import com.second.spring_study.dto.response.minj.UserResponseDto;
 import com.second.spring_study.entity.user_minj.UserMinj;
 import com.second.spring_study.entity.user_minj.repository.UserMinjRepository;
 import lombok.RequiredArgsConstructor;
+import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -42,4 +44,9 @@ public class UserMinjService {
         return user.stream().map(UserResponseDto::of).collect(Collectors.toList());
     }
 
+    @Transactional
+    public UserResponseDto detailsUser(long id) {
+        UserMinj userMinj = userRepository.findById(id).orElseThrow();
+        return UserResponseDto.of(userMinj);
+    }
 }
