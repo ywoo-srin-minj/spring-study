@@ -1,10 +1,11 @@
-package com.second.spring_study.dto.reponse.ywoo;
+package com.second.spring_study.dto.response.ywoo;
 
 import com.second.spring_study.entity.user_ywoo.UserYwoo;
 import lombok.*;
 
 
 @Builder
+@Getter
 public class UserResponseDto {
     private Long id;
     private String user_id;
