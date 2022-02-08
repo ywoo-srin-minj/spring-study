@@ -27,7 +27,6 @@ public class UserYwooController {
 
     @GetMapping()
     public List<UserResponseDto> findAllUser(){
-        userYwooService.findAllUser();
 
         return userYwooService.findAllUser();
     }
