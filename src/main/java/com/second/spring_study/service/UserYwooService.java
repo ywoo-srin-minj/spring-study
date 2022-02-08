@@ -1,6 +1,6 @@
 package com.second.spring_study.service;
 
-import com.second.spring_study.dto.reponse.ywoo.UserResponseDto;
+import com.second.spring_study.dto.response.ywoo.UserResponseDto;
 import com.second.spring_study.dto.request.ywoo.UserRequestDto;
 import com.second.spring_study.entity.user_ywoo.UserYwoo;
 import com.second.spring_study.entity.user_ywoo.repository.UserYwooRepository;
@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.*;
 
 @RequiredArgsConstructor
@@ -42,5 +43,14 @@ public class UserYwooService {
         //useres의 타입은 <List>UserYwoo
         //stream을 통해 UserResponseDto로 형변환? - Mapping?
         //Colleactors를 통해 List로 변환
+    }
+
+    @Transactional
+    public UserResponseDto findUser(Long id){
+        UserYwoo userYwoo = userRepository.findById(id).orElseThrow();
+        //orElseThrow()를 통해 UserYwoo이 아닐 경우 에러를 발생시킴
+        //orElseThrow()가 없을 경우 findById의 타입이 맞지 않아 에러 발생
+        return UserResponseDto.of(userYwoo);
+        //of를 통해 entity to dto
     }
 }
