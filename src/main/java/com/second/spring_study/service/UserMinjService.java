@@ -13,13 +13,13 @@ public class UserMinjService {
     private final UserMinjRepository userRepository;
 
     @Transactional
-    public void createUser(UserRequestDto userRequestDto){
+    public void createUser(UserRequestDto userRequestDto) {
         UserMinj user = UserMinj.createUser(userRequestDto.getUser_id(), userRequestDto.getUser_name(), userRequestDto.getUser_password());
         userRepository.save(user);
     }
 
     @Transactional
-    public void deleteUser(long id){
+    public void deleteUser(long id) {
         // 없는 아이디일 경우 추후에 예외처리 진행
         //userRepository.findById(id).orElseThrow();
         userRepository.deleteById(id);

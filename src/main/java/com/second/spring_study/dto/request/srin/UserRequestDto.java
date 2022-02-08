@@ -3,6 +3,7 @@ package com.second.spring_study.dto.request.srin;
 
 //request 값을 받는거고
 //response 값을 보내는거
+
 import com.sun.istack.NotNull;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

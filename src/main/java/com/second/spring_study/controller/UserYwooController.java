@@ -11,13 +11,14 @@ import org.springframework.web.bind.annotation.*;
 public class UserYwooController {
 
     private final UserYwooService userYwooService;
+
     @PostMapping()
-    public void createUser(@RequestBody UserRequestDto userRequestDto){
+    public void createUser(@RequestBody UserRequestDto userRequestDto) {
         userYwooService.createUser(userRequestDto);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable long id){
+    public void deleteUser(@PathVariable long id) {
         userYwooService.deleteUser(id);
     }
 }

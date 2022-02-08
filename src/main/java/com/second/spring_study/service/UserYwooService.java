@@ -17,14 +17,14 @@ public class UserYwooService {
 
 
     @Transactional
-    public void createUser(UserRequestDto userRequestDto){
-        UserYwoo user = UserYwoo.createUser(userRequestDto.getUser_id(),userRequestDto.getUser_name(), userRequestDto.getUser_password());
+    public void createUser(UserRequestDto userRequestDto) {
+        UserYwoo user = UserYwoo.createUser(userRequestDto.getUser_id(), userRequestDto.getUser_name(), userRequestDto.getUser_password());
         userRepository.save(user);
     }
 
     @Transactional
-    public void deleteUser(long id){
-        userRepository.findById(id).orElseThrow(()->{
+    public void deleteUser(long id) {
+        userRepository.findById(id).orElseThrow(() -> {
             throw new DataNoFoundException();
         });
         userRepository.deleteById(id);

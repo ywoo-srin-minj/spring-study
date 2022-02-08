@@ -22,11 +22,11 @@ public class UserYwoo {
     @Column(length = 30, nullable = false, name = "user_password")
     private String user_password;
 
-    public static UserYwoo createUser(String user_id, String user_name, String user_password){
+    public static UserYwoo createUser(String user_id, String user_name, String user_password) {
         UserYwoo userYwoo = new UserYwoo();
         userYwoo.user_id = user_id;
-        userYwoo.user_name=user_name;
-        userYwoo.user_password=user_password;
+        userYwoo.user_name = user_name;
+        userYwoo.user_password = user_password;
         return userYwoo;
     }
 }

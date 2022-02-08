@@ -15,12 +15,12 @@ public class UserMinjController {
     private final UserMinjService userMinjService;
 
     @PostMapping()
-    public void createUser(@RequestBody UserRequestDto userRequestDto){
+    public void createUser(@RequestBody UserRequestDto userRequestDto) {
         userMinjService.createUser(userRequestDto);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable @Valid long id){
+    public void deleteUser(@PathVariable @Valid long id) {
         userMinjService.deleteUser(id);
     }
 }
