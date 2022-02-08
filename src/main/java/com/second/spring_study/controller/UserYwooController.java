@@ -1,9 +1,13 @@
 package com.second.spring_study.controller;
 
+import com.second.spring_study.dto.reponse.ywoo.UserResponseDto;
 import com.second.spring_study.dto.request.ywoo.UserRequestDto;
+import com.second.spring_study.entity.user_ywoo.UserYwoo;
 import com.second.spring_study.service.UserYwooService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -19,5 +23,12 @@ public class UserYwooController {
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable long id){
         userYwooService.deleteUser(id);
+    }
+
+    @GetMapping()
+    public List<UserResponseDto> findAllUser(){
+        userYwooService.findAllUser();
+
+        return userYwooService.findAllUser();
     }
 }
