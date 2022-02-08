@@ -1,13 +1,13 @@
 package com.second.spring_study.controller;
 
 import com.second.spring_study.dto.request.srin.UserRequestDto;
-import com.second.spring_study.dto.request.srin.UserResponseDto;
-import com.second.spring_study.entity.user_srin.UserSrin;
+import com.second.spring_study.dto.response.srin.UserResponseDto;
 import com.second.spring_study.service.UserSrinService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -26,7 +26,7 @@ public class UserSrinController {
     }
 
     @ResponseBody
-    @GetMapping("")
+    @GetMapping()
     public List<UserResponseDto> findAllUser(){
         /*
         List<UserSrin> allUser = userSrinService.findAllUser();
@@ -38,5 +38,11 @@ public class UserSrinController {
         */
         List<UserResponseDto> userList = userSrinService.findAllUser();
         return userList;
+    }
+
+    @ResponseBody
+    @GetMapping("/{id}")
+    public UserResponseDto findByIdUser(@PathVariable long id){
+        return userSrinService.findByIdUser(id);
     }
 }

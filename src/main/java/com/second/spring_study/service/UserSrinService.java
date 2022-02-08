@@ -1,21 +1,16 @@
 package com.second.spring_study.service;
 
 import com.second.spring_study.dto.request.srin.UserRequestDto;
-import com.second.spring_study.dto.request.srin.UserResponseDto;
+import com.second.spring_study.dto.response.srin.UserResponseDto;
 import com.second.spring_study.entity.user_srin.UserSrin;
 import com.second.spring_study.entity.user_srin.repository.UserSrinRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.thymeleaf.expression.Lists;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 //실제 기능 구현하는곳
 @RequiredArgsConstructor
@@ -49,6 +44,12 @@ public class UserSrinService {
                 .collect(Collectors.toList());
 
         return stream;
+    }
+
+    @Transactional
+    public UserResponseDto findByIdUser(long id){
+        UserSrin userSrin = userRepository.findById(id).orElseThrow();  //UserSrin의 형식이 아닌건 예외처리 하므로, UserSrin 형식만 return된다.
+        return UserResponseDto.of(userSrin);
     }
 
 }
