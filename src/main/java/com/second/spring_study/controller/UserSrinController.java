@@ -2,12 +2,12 @@ package com.second.spring_study.controller;
 
 import com.second.spring_study.dto.request.srin.UserRequestDto;
 import com.second.spring_study.dto.response.srin.UserResponseDto;
+import com.second.spring_study.dto.request.srin.UserUpdateRequestDto;
 import com.second.spring_study.service.UserSrinService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -44,5 +44,10 @@ public class UserSrinController {
     @GetMapping("/{id}")
     public UserResponseDto findByIdUser(@PathVariable long id){
         return userSrinService.findByIdUser(id);
+    }
+
+    @PutMapping("/{id}")
+    public void updateUser(@PathVariable long id, @RequestBody UserUpdateRequestDto userUpdateRequestDto){
+        userSrinService.updateUser(id, userUpdateRequestDto);
     }
 }

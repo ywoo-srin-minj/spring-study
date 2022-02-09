@@ -1,9 +1,9 @@
 package com.second.spring_study.entity.user_srin;
 
+import com.second.spring_study.dto.request.srin.UserUpdateRequestDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 
@@ -38,6 +38,11 @@ public class UserSrin {
         return userSrin;
     }
 
+    public static UserSrin updateUser(UserSrin userSrin, UserUpdateRequestDto userUpdateRequestDto){
+        userSrin.user_name = userUpdateRequestDto.getUser_name();
+        userSrin.user_password = userUpdateRequestDto.getUser_password();
+        return userSrin;
+    }
 
 /*
     //직접 작성(window 단축키 Alt + insert)
