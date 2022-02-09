@@ -53,7 +53,7 @@ public class UserMinjService {
 
     @Transactional
     public void updateUser(long id, UpdateUserRequestDto updateUserRequestDto){
-        UserMinj userMinj = userRepository.findById(id).orElseThrow();
-        userMinj.updateUser(updateUserRequestDto.getUser_password(), updateUserRequestDto.getUser_name());
+        userRepository.findById(id).orElseThrow();
+        userRepository.updateUser(id, updateUserRequestDto);
     }
 }

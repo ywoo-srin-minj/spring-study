@@ -28,9 +28,4 @@ public class UserMinj {
         userMinj.user_password = user_password;
         return userMinj;
     }
-
-    public void updateUser(String user_password, String user_name){
-        this.user_password = user_password;
-        this.user_name = user_name;
-    }
 }
