@@ -1,12 +1,15 @@
 package com.second.spring_study.dto.request.srin;
 
+import com.sun.istack.NotNull;
 import lombok.*;
 
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Builder
 public class UserUpdateRequestDto {
-    private String user_password = null;
-    private String user_name = null;
+    @NotNull
+    String user_password;
+
+    @NotNull
+    String user_name;
 }
