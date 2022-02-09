@@ -37,8 +37,8 @@ public class UserYwooController {
     }
 
     @PutMapping("/{id}")
-    public void updateUser(@PathVariable long id, @RequestBody UserRequestUpdateDto userUpdateDto){
-        userYwooService.updateUser(id,userUpdateDto);
+    public void updateUser(@PathVariable long id, @RequestBody UserRequestUpdateDto userRequestUpdateDto){
+        userYwooService.updateUser(id,userRequestUpdateDto);
 
     }
 

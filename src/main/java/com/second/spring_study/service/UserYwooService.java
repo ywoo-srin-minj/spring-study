@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.*;
 
 @RequiredArgsConstructor
@@ -56,8 +55,8 @@ public class UserYwooService {
     }
 
     @Transactional
-    public void updateUser(long id, UserRequestUpdateDto userUpdateDto){
-        UserYwoo userYwoo = userRepository.findById(id).orElseThrow();
-        userYwoo.updateUser(userUpdateDto.getUser_name(), userUpdateDto.getUser_password());
+    public void updateUser(long id, UserRequestUpdateDto userRequestUpdateDto){
+        userRepository.findById(id).orElseThrow();
+        updateUser(id,userRequestUpdateDto);
     }
 }
