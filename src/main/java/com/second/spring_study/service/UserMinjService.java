@@ -1,5 +1,6 @@
 package com.second.spring_study.service;
 
+import com.second.spring_study.dto.request.minj.UpdateUserRequestDto;
 import com.second.spring_study.dto.request.minj.UserRequestDto;
 import com.second.spring_study.dto.response.minj.UserResponseDto;
 import com.second.spring_study.entity.user_minj.UserMinj;
@@ -48,5 +49,11 @@ public class UserMinjService {
     public UserResponseDto detailsUser(long id) {
         UserMinj userMinj = userRepository.findById(id).orElseThrow();
         return UserResponseDto.of(userMinj);
+    }
+
+    @Transactional
+    public void updateUser(long id, UpdateUserRequestDto updateUserRequestDto){
+        UserMinj userMinj = userRepository.findById(id).orElseThrow();
+        userMinj.updateUser(updateUserRequestDto.getUser_password(), updateUserRequestDto.getUser_name());
     }
 }
