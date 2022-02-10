@@ -18,7 +18,7 @@ public class UserMinjController {
     private final UserMinjService userMinjService;
 
     @PostMapping()
-    public void createUser(@RequestBody UserRequestDto userRequestDto) {
+    public void createUser(@RequestBody @Valid UserRequestDto userRequestDto) {
         userMinjService.createUser(userRequestDto);
     }
 

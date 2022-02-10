@@ -12,8 +12,8 @@ import lombok.NoArgsConstructor;
 public class UpdateUserRequestDto {
 
     @NotNull
-    String user_password;
+    String userPassword;
     @NotNull
-    String user_name;
+    String userName;
 
 }

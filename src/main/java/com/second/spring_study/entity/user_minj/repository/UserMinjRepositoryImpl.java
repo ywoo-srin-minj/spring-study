@@ -20,8 +20,8 @@ public class UserMinjRepositoryImpl extends QuerydslRepositorySupport implements
     @Override
     public void updateUser(long id, UpdateUserRequestDto updateUserRequestDto) {
         queryFactory.update(userMinj)
-                .set(userMinj.user_password, updateUserRequestDto.getUser_password())
-                .set(userMinj.user_name, updateUserRequestDto.getUser_name())
+                .set(userMinj.userPassword, updateUserRequestDto.getUserPassword())
+                .set(userMinj.userName, updateUserRequestDto.getUserName())
                 .where(userMinj.id.eq(id))
                 .execute();
     }
