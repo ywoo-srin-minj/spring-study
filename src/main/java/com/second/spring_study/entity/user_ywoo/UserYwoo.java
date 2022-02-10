@@ -1,6 +1,7 @@
 package com.second.spring_study.entity.user_ywoo;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
@@ -28,5 +29,12 @@ public class UserYwoo {
         userYwoo.user_name = user_name;
         userYwoo.user_password = user_password;
         return userYwoo;
+    }
+
+
+    public UserYwoo updateUser(String user_name, String user_password){
+        this.user_name = user_name;
+        this.user_password = user_password;
+        return this;
     }
 }

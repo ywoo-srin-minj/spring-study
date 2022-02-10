@@ -1,5 +1,6 @@
 package com.second.spring_study.controller;
 
+import com.second.spring_study.dto.request.ywoo.UserRequestUpdateDto;
 import com.second.spring_study.dto.response.ywoo.UserResponseDto;
 import com.second.spring_study.dto.request.ywoo.UserRequestDto;
 import com.second.spring_study.service.UserYwooService;
@@ -31,7 +32,14 @@ public class UserYwooController {
         return userYwooService.findAllUser();
     }
     @PostMapping("/{id}")
-    public UserResponseDto findUser(@PathVariable Long id){
+    public UserResponseDto findUser(@PathVariable long id){
         return userYwooService.findUser(id);
     }
+
+    @PutMapping("/{id}")
+    public void updateUser(@PathVariable long id, @RequestBody UserRequestUpdateDto userRequestUpdateDto){
+        userYwooService.updateUser(id,userRequestUpdateDto);
+
+    }
+
 }
