@@ -28,5 +28,4 @@ public class UserMinj {
         userMinj.user_password = user_password;
         return userMinj;
     }
-
 }
