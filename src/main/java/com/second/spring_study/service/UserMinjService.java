@@ -6,12 +6,10 @@ import com.second.spring_study.dto.response.minj.UserResponseDto;
 import com.second.spring_study.entity.user_minj.UserMinj;
 import com.second.spring_study.entity.user_minj.repository.UserMinjRepository;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -38,7 +36,7 @@ public class UserMinjService {
 
 //        return user.stream()
 //                .map(
-//                        e -> new UserResponseDto(e.getId(), e.getUser_id(), e.getUser_password(), e.getUser_name())
+//                        e -> new UserResponseDto(e.getId(), e.getUserId(), e.getUserPassword(), e.getUserName())
 //                )
 //                .collect(Collectors.toList());
 

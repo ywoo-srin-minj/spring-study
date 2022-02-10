@@ -1,31 +1,34 @@
 package com.second.spring_study.entity.user_minj;
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Getter
 @Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class UserMinj {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true, length = 30)
-    private String user_id;
+    @Column(name="user_id", nullable = false, unique = true, length = 30)
+    private String userId;
 
-    @Column(nullable = false, length = 30)
-    private String user_password;
+    @Column(name="user_password", nullable = false, length = 30)
+    private String userPassword;
 
-    @Column(nullable = false, length = 10)
-    private String user_name;
+    @Column(name="user_name", nullable = false, length = 10)
+    private String userName;
 
-    public static UserMinj createUser(String user_id, String user_name, String user_password) {
+    public static UserMinj createUser(String userId, String userName, String userPassword) {
         UserMinj userMinj = new UserMinj();
-        userMinj.user_id = user_id;
-        userMinj.user_name = user_name;
-        userMinj.user_password = user_password;
+        userMinj.userId = userId;
+        userMinj.userName = userName;
+        userMinj.userPassword = userPassword;
         return userMinj;
     }
 }
