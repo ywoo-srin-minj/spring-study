@@ -10,3 +10,12 @@ spring:
     path: /h2-console
     profiles:
       active: local
+  web:
+    resources:
+      add-mappings : false
+server:
+  error:
+    include-message: always
+
+
+
