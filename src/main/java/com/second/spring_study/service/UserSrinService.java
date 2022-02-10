@@ -5,6 +5,8 @@ import com.second.spring_study.dto.response.srin.UserResponseDto;
 import com.second.spring_study.dto.request.srin.UserUpdateRequestDto;
 import com.second.spring_study.entity.user_srin.UserSrin;
 import com.second.spring_study.entity.user_srin.repository.UserSrinRepository;
+import com.second.spring_study.exception.srin.ApiException;
+import com.second.spring_study.exception.srin.ErrorCodeEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,7 +22,10 @@ public class UserSrinService {
 
     @Transactional
     public void createUser(UserRequestDto userRequestDto) {
-        UserSrin userSrin = UserSrin.createUser(userRequestDto.getUser_id(), userRequestDto.getUser_name(), userRequestDto.getUser_password());
+        if(userRepository.existsByUserId(userRequestDto.getUserId())){
+            throw new ApiException(ErrorCodeEnum.USER_ALREADY_EXIST);
+        }
+        UserSrin userSrin = UserSrin.createUser(userRequestDto.getUserId(), userRequestDto.getUserName(), userRequestDto.getUserPassword());
         userRepository.save(userSrin);
     }
 
@@ -31,6 +36,7 @@ public class UserSrinService {
             throw new DataNotFoundException();}
         );
         */
+        userRepository.findById(id).orElseThrow(() -> new ApiException(ErrorCodeEnum.USER_NOT_FOUND));
         userRepository.deleteById(id);
     }
 
@@ -40,7 +46,7 @@ public class UserSrinService {
 
 
         List<UserResponseDto> stream = (List<UserResponseDto>) allUser.stream()
-                .map(userSrin -> new UserResponseDto(userSrin.getId(), userSrin.getUser_id(), userSrin.getUser_password(), userSrin.getUser_name()))
+                .map(userSrin -> new UserResponseDto(userSrin.getId(), userSrin.getUserId(), userSrin.getUserPassword(), userSrin.getUserName()))
                 .collect(Collectors.toList());
 
         return stream;
@@ -48,13 +54,13 @@ public class UserSrinService {
 
     @Transactional
     public UserResponseDto findByIdUser(long id){
-        UserSrin userSrin = userRepository.findById(id).orElseThrow();  //UserSrin의 형식이 아닌건 예외처리 하므로, UserSrin 형식만 return된다.
+        UserSrin userSrin = userRepository.findById(id).orElseThrow(() -> new ApiException(ErrorCodeEnum.USER_NOT_FOUND));  //UserSrin의 형식이 아닌건 예외처리 하므로, UserSrin 형식만 return된다.
         return UserResponseDto.of(userSrin);
     }
 
     @Transactional
     public void updateUser(long id, UserUpdateRequestDto userUpdateRequestDto){
-        UserSrin userSrin = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 회원이 존재하지 않습니다. id" + id));
+        UserSrin userSrin = userRepository.findById(id).orElseThrow(() -> new ApiException(ErrorCodeEnum.USER_NOT_FOUND));
         userSrin.updateUser(userSrin, userUpdateRequestDto);
     }
 

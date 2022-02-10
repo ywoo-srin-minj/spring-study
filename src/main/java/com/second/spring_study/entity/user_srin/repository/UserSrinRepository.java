@@ -6,4 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface UserSrinRepository extends CrudRepository<UserSrin, Long>, UserSrinRepositoryExtension{
     UserSrin save(UserRequestDto userRequestDto);
+    boolean existsByUserId(String userId);
 }
