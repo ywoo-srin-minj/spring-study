@@ -22,6 +22,10 @@ public class UserSrinService {
 
     @Transactional
     public void createUser(UserRequestDto userRequestDto) {
+ /*       if(userRequestDto.getUserId()==null||userRequestDto.getUserName()==null||userRequestDto.getUserPassword()==null){
+            throw new NullPointerException();
+        }
+  */
         if(userRepository.existsByUserId(userRequestDto.getUserId())){
             throw new ApiException(ErrorCodeEnum.USER_ALREADY_EXIST);
         }
@@ -31,19 +35,13 @@ public class UserSrinService {
 
     @Transactional
     public void deleteUser(Long id) {
-        /*
-        userRepository.findById(id).orElseThrow(() -> {
-            throw new DataNotFoundException();}
-        );
-        */
-        userRepository.findById(id).orElseThrow(() -> new ApiException(ErrorCodeEnum.USER_NOT_FOUND));
+        userNotFoundException(id);
         userRepository.deleteById(id);
     }
 
     @Transactional
     public List<UserResponseDto> findAllUser(){
         List<UserSrin> allUser = (List<UserSrin>) userRepository.findAll();
-
 
         List<UserResponseDto> stream = (List<UserResponseDto>) allUser.stream()
                 .map(userSrin -> new UserResponseDto(userSrin.getId(), userSrin.getUserId(), userSrin.getUserPassword(), userSrin.getUserName()))
@@ -54,14 +52,17 @@ public class UserSrinService {
 
     @Transactional
     public UserResponseDto findByIdUser(long id){
-        UserSrin userSrin = userRepository.findById(id).orElseThrow(() -> new ApiException(ErrorCodeEnum.USER_NOT_FOUND));  //UserSrin의 형식이 아닌건 예외처리 하므로, UserSrin 형식만 return된다.
+        UserSrin userSrin = userNotFoundException(id);
         return UserResponseDto.of(userSrin);
     }
 
     @Transactional
     public void updateUser(long id, UserUpdateRequestDto userUpdateRequestDto){
-        UserSrin userSrin = userRepository.findById(id).orElseThrow(() -> new ApiException(ErrorCodeEnum.USER_NOT_FOUND));
+        UserSrin userSrin = userNotFoundException(id);
         userSrin.updateUser(userSrin, userUpdateRequestDto);
     }
 
+    private UserSrin userNotFoundException(long id){
+        return userRepository.findById(id).orElseThrow(() -> new ApiException(ErrorCodeEnum.USER_NOT_FOUND));
+    }
 }
