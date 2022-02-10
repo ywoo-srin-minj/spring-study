@@ -21,17 +21,17 @@ public class UserYwooRepositoryImpl extends QuerydslRepositorySupport implements
     @Override
     public void updateUser(long id, UserRequestUpdateDto userRequestUpdateDto) {
         queryFactory.update(userYwoo) //update문
-                .set(userYwoo.user_password, userRequestUpdateDto.getUser_password()) //객체에 해당되는 값을 넣어줌
-                .set(userYwoo.user_name, userRequestUpdateDto.getUser_name())
+                .set(userYwoo.userPassword, userRequestUpdateDto.getUserPassword()) //객체에 해당되는 값을 넣어줌
+                .set(userYwoo.userName, userRequestUpdateDto.getUserName())
                 .where(userYwoo.id.eq(id)) //들어온 id와 객체의 id가 같을 경우
                 .execute();
     }
 
     //값으로 null이 들어올 경우
-    private BooleanExpression userPassWordEq(String user_password){
-        return user_password !=null ? userYwoo.user_password.eq(user_password) : null;
+    private BooleanExpression userPassWordEq(String userPassword){
+        return userPassword !=null ? userYwoo.userPassword.eq(userPassword) : null;
     }
-    private BooleanExpression userNameEq(String user_name){
-        return user_name !=null ? userYwoo.user_name.eq(user_name) : null;
+    private BooleanExpression userNameEq(String userName){
+        return userName !=null ? userYwoo.userName.eq(userName) : null;
     }
 }
