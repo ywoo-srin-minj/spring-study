@@ -5,6 +5,8 @@ import com.second.spring_study.dto.request.minj.UserRequestDto;
 import com.second.spring_study.dto.response.minj.UserResponseDto;
 import com.second.spring_study.entity.user_minj.UserMinj;
 import com.second.spring_study.entity.user_minj.repository.UserMinjRepository;
+import com.second.spring_study.exception.minj.ApiException;
+import com.second.spring_study.exception.minj.ErrorCodeEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,14 +21,21 @@ public class UserMinjService {
 
     @Transactional
     public void createUser(UserRequestDto userRequestDto) {
-        UserMinj user = UserMinj.createUser(userRequestDto.getUser_id(), userRequestDto.getUser_name(), userRequestDto.getUser_password());
+        System.out.println(userRepository.existsByUserId(userRequestDto.getUserId()));
+        if(userRepository.existsByUserId(userRequestDto.getUserId())){
+            throw new ApiException(ErrorCodeEnum.USER_ALREADY_EXIST);
+        }
+
+        UserMinj user = UserMinj.createUser(userRequestDto.getUserId(), userRequestDto.getUserName(), userRequestDto.getUserPassword());
         userRepository.save(user);
     }
 
     @Transactional
     public void deleteUser(long id) {
         // 없는 아이디일 경우 추후에 예외처리 진행
-        //userRepository.findById(id).orElseThrow();
+        userRepository.findById(id).orElseThrow(() -> {
+            throw new ApiException(ErrorCodeEnum.USER_NOT_FOUND);
+        });
         userRepository.deleteById(id);
     }
 
@@ -45,7 +54,9 @@ public class UserMinjService {
 
     @Transactional
     public UserResponseDto detailsUser(long id) {
-        UserMinj userMinj = userRepository.findById(id).orElseThrow();
+        UserMinj userMinj = userRepository.findById(id).orElseThrow(() ->{
+            throw new ApiException(ErrorCodeEnum.USER_NOT_FOUND);
+        });
         return UserResponseDto.of(userMinj);
     }
 
