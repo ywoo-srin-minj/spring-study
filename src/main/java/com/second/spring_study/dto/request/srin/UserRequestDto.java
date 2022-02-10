@@ -18,11 +18,11 @@ public class UserRequestDto {
     //Long id;
 
     @NotNull
-    String user_id;
+    String userId;
     @NotNull
-    String user_password;
+    String userPassword;
     @NotNull
-    String user_name;
+    String userName;
 
     /*
     {

@@ -8,8 +8,8 @@ import lombok.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class UserUpdateRequestDto {
     @NotNull
-    String user_password;
+    String userPassword;
 
     @NotNull
-    String user_name;
+    String userName;
 }
