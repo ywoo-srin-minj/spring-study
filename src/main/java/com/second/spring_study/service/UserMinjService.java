@@ -62,7 +62,9 @@ public class UserMinjService {
 
     @Transactional
     public void updateUser(long id, UpdateUserRequestDto updateUserRequestDto){
-        userRepository.findById(id).orElseThrow();
+        userRepository.findById(id).orElseThrow(() ->{
+            throw new ApiException(ErrorCodeEnum.USER_NOT_FOUND);
+        });
         userRepository.updateUser(id, updateUserRequestDto);
     }
 }
