@@ -21,16 +21,16 @@ public class UserResponseDto {
 public class UserResponseDto {
 
     private Long id;
-    private String user_id;
-    private String user_password;
-    private String user_name;
+    private String userId;
+    private String userPassword;
+    private String userName;
 
     public static UserResponseDto of(UserSrin userSrin) {
         return UserResponseDto.builder()
                 .id(userSrin.getId())
-                .user_id(userSrin.getUser_id())
-                .user_name(userSrin.getUser_name())
-                .user_password(userSrin.getUser_password())
+                .userId(userSrin.getUserId())
+                .userName(userSrin.getUserName())
+                .userPassword(userSrin.getUserPassword())
                 .build();
     }
 

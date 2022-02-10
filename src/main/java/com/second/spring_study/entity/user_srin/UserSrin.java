@@ -22,25 +22,25 @@ public class UserSrin {
     //현재 칼럼 변수는 _형식이므로 굳이 작성하지 않아도 됨
     //length가 없으면 기본적으로 255가 지정
     @Column(name = "user_id" ,nullable = false, unique = true, length = 30) //테이블의 Column임을 명시
-    private String user_id;
+    private String userId;
 
-    @Column(nullable = false, length = 10)
-    private String user_name;
+    @Column(name = "user_name", nullable = false, length = 10)
+    private String userName;
 
-    @Column(nullable = false, length = 30)
-    private String user_password;
+    @Column(name = "user_password", nullable = false, length = 30)
+    private String userPassword;
 
-    public static UserSrin createUser(String user_id, String user_name, String user_password){
+    public static UserSrin createUser(String userId, String userName, String userPassword){
         UserSrin userSrin = new UserSrin();
-        userSrin.user_id = user_id;
-        userSrin.user_name = user_name;
-        userSrin.user_password = user_password;
+        userSrin.userId = userId;
+        userSrin.userName = userName;
+        userSrin.userPassword = userPassword;
         return userSrin;
     }
 
     public static UserSrin updateUser(UserSrin userSrin, UserUpdateRequestDto userUpdateRequestDto){
-        userSrin.user_name = userUpdateRequestDto.getUser_name();
-        userSrin.user_password = userUpdateRequestDto.getUser_password();
+        userSrin.userName = userUpdateRequestDto.getUserName();
+        userSrin.userPassword = userUpdateRequestDto.getUserPassword();
         return userSrin;
     }
 

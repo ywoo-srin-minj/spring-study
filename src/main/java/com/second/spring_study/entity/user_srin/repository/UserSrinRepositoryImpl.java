@@ -17,8 +17,8 @@ public class UserSrinRepositoryImpl extends QuerydslRepositorySupport implements
     @Override
     public void updateUser(long id, UserUpdateRequestDto userUpdateRequestDto) {
         queryFactory.update(userSrin)
-                .set(userSrin.user_password, userUpdateRequestDto.getUser_password())
-                .set(userSrin.user_name, userUpdateRequestDto.getUser_name())
+                .set(userSrin.userPassword, userUpdateRequestDto.getUserPassword())
+                .set(userSrin.userName, userUpdateRequestDto.getUserName())
                 .where(userSrin.id.eq(id))
                 .execute();
     }
