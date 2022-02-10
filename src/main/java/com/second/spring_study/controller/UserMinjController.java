@@ -1,8 +1,8 @@
 package com.second.spring_study.controller;
 
+import com.second.spring_study.dto.request.minj.UpdateUserRequestDto;
 import com.second.spring_study.dto.request.minj.UserRequestDto;
 import com.second.spring_study.dto.response.minj.UserResponseDto;
-import com.second.spring_study.entity.user_minj.UserMinj;
 import com.second.spring_study.service.UserMinjService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -35,5 +35,10 @@ public class UserMinjController {
     @PostMapping("{id}")
     public UserResponseDto detailsUser(@PathVariable @Valid long id) {
         return userMinjService.detailsUser(id);
+    }
+
+    @PutMapping("{id}")
+    public void updateUser(@PathVariable @Valid long id, @RequestBody UpdateUserRequestDto updateUserRequestDto){
+        userMinjService.updateUser(id, updateUserRequestDto);
     }
 }
