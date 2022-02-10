@@ -21,7 +21,6 @@ public class UserMinjService {
 
     @Transactional
     public void createUser(UserRequestDto userRequestDto) {
-        System.out.println(userRepository.existsByUserId(userRequestDto.getUserId()));
         if(userRepository.existsByUserId(userRequestDto.getUserId())){
             throw new ApiException(ErrorCodeEnum.USER_ALREADY_EXIST);
         }
