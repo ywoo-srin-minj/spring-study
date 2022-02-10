@@ -6,10 +6,10 @@ import com.second.spring_study.entity.user_srin.UserSrin;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 import static com.second.spring_study.entity.user_srin.QUserSrin.userSrin;
 
-public class UserSrinRepositoryImplement extends QuerydslRepositorySupport implements UserSrinRepositoryExtension{
+public class UserSrinRepositoryImpl extends QuerydslRepositorySupport implements UserSrinRepositoryExtension{
     private final JPAQueryFactory queryFactory;
 
-    public UserSrinRepositoryImplement(JPAQueryFactory jpaQueryFactory) {
+    public UserSrinRepositoryImpl(JPAQueryFactory jpaQueryFactory) {
         super(UserSrin.class);
         this.queryFactory = jpaQueryFactory;
     }
