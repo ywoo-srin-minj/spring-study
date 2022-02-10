@@ -5,7 +5,8 @@ import com.second.spring_study.dto.response.ywoo.UserResponseDto;
 import com.second.spring_study.dto.request.ywoo.UserRequestDto;
 import com.second.spring_study.entity.user_ywoo.UserYwoo;
 import com.second.spring_study.entity.user_ywoo.repository.UserYwooRepository;
-import com.second.spring_study.exception.ywoo.DataNoFoundException;
+import com.second.spring_study.exception.ywoo.ApiException;
+import com.second.spring_study.exception.ywoo.ErrorCodeEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,14 +22,17 @@ public class UserYwooService {
 
     @Transactional
     public void createUser(UserRequestDto userRequestDto) {
-        UserYwoo user = UserYwoo.createUser(userRequestDto.getUser_id(), userRequestDto.getUser_name(), userRequestDto.getUser_password());
+        if(userRepository.existsByUserId(userRequestDto.getUserId())){
+            throw new ApiException(ErrorCodeEnum.USER_ALREADY_EXIST);
+        }
+        UserYwoo user = UserYwoo.createUser(userRequestDto.getUserId(), userRequestDto.getUserName(), userRequestDto.getUserPassword());
         userRepository.save(user);
     }
 
     @Transactional
     public void deleteUser(long id) {
         userRepository.findById(id).orElseThrow(() -> {
-            throw new DataNoFoundException();
+            throw new ApiException(ErrorCodeEnum.USER_NOT_FOUND);
         });
         userRepository.deleteById(id);
     }
@@ -47,7 +51,9 @@ public class UserYwooService {
 
     @Transactional
     public UserResponseDto findUser(long id){
-        UserYwoo userYwoo = userRepository.findById(id).orElseThrow();
+        UserYwoo userYwoo = userRepository.findById(id).orElseThrow(()->{
+            throw new ApiException(ErrorCodeEnum.USER_NOT_FOUND);
+        });
         //orElseThrow()를 통해 UserYwoo이 아닐 경우 에러를 발생시킴
         //orElseThrow()가 없을 경우 findById의 타입이 맞지 않아 에러 발생
         return UserResponseDto.of(userYwoo);
@@ -56,7 +62,9 @@ public class UserYwooService {
 
     @Transactional
     public void updateUser(long id, UserRequestUpdateDto userRequestUpdateDto){
-        userRepository.findById(id).orElseThrow();
+        userRepository.findById(id).orElseThrow(()->{
+            throw new ApiException(ErrorCodeEnum.USER_NOT_FOUND);
+        });
         updateUser(id,userRequestUpdateDto);
     }
 }

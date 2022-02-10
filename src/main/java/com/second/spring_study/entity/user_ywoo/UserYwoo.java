@@ -1,6 +1,8 @@
 package com.second.spring_study.entity.user_ywoo;
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -8,33 +10,33 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Table()
-
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class UserYwoo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //AUTO_INCREMENT
     private Long id;
 
     @Column(length = 30, unique = true, nullable = false, name = "user_id")
-    private String user_id;
+    private String userId;
 
     @Column(length = 10, nullable = false, name = "user_name")
-    private String user_name;
+    private String userName;
 
     @Column(length = 30, nullable = false, name = "user_password")
-    private String user_password;
+    private String userPassword;
 
-    public static UserYwoo createUser(String user_id, String user_name, String user_password) {
+    public static UserYwoo createUser(String userId, String userName, String userPassword) {
         UserYwoo userYwoo = new UserYwoo();
-        userYwoo.user_id = user_id;
-        userYwoo.user_name = user_name;
-        userYwoo.user_password = user_password;
+        userYwoo.userId = userId;
+        userYwoo.userName = userName;
+        userYwoo.userPassword = userPassword;
         return userYwoo;
     }
 
 
-    public UserYwoo updateUser(String user_name, String user_password){
-        this.user_name = user_name;
-        this.user_password = user_password;
+    public UserYwoo updateUser(String userName, String userPassword){
+        this.userName = userName;
+        this.userPassword = userPassword;
         return this;
     }
 }

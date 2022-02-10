@@ -8,17 +8,17 @@ import lombok.*;
 @Getter
 public class UserResponseDto {
     private Long id;
-    private String user_id;
-    private String user_name;
-    private String user_password;
+    private String userId;
+    private String userName;
+    private String userPassword;
 
     //of를 사용해 entity to of
     public static UserResponseDto of(UserYwoo userYwoo){
         return UserResponseDto.builder()
                 .id(userYwoo.getId())
-                .user_id(userYwoo.getUser_id())
-                .user_name(userYwoo.getUser_name())
-                .user_password(userYwoo.getUser_password())
+                .userId(userYwoo.getUserId())
+                .userName(userYwoo.getUserName())
+                .userPassword(userYwoo.getUserPassword())
                 .build();
     }
 }
