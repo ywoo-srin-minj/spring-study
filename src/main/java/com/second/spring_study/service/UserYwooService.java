@@ -65,6 +65,6 @@ public class UserYwooService {
         userRepository.findById(id).orElseThrow(()->{
             throw new ApiException(ErrorCodeEnum.USER_NOT_FOUND);
         });
-        updateUser(id,userRequestUpdateDto);
+        userRepository.updateUser(id,userRequestUpdateDto);
     }
 }
