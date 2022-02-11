@@ -64,13 +64,12 @@ public class UserSrinControllerTest {
 
     @Test
     void 회원중복생성() throws Exception {
-        UserRequestDto userRequestDto = new UserRequestDto("id001", "001", "password");
-        UserRequestDto userRequestDto2 = new UserRequestDto("id001", "001", "password");
-
-        mockMvc.perform(post("/users-srin")
+        UserRequestDto userRequestDto = new UserRequestDto("HELLO", "1234", "HelloEveryone");
+        UserRequestDto userRequestDto2 = new UserRequestDto("HELLO", "1234", "HelloEveryone");
+        mockMvc.perform(post("/users-srin/")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(userRequestDto))
-                        .content(new ObjectMapper().writeValueAsString(userRequestDto2)))
+                        .content(new ObjectMapper().writeValueAsString(userRequestDto)))
                 .andExpect(status().isConflict())
                 .andDo(print());
     }
