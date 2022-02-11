@@ -5,10 +5,10 @@ import lombok.ToString;
 
 @Getter
 @ToString
-public class ApiException extends RuntimeException{
+public class ApiExceptionSrin extends RuntimeException{
     private final ErrorCodeEnum error;
 
-    public ApiException(ErrorCodeEnum e){
+    public ApiExceptionSrin(ErrorCodeEnum e){
         super(e.getMessage());
         this.error = e;
     }
