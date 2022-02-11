@@ -1,7 +1,6 @@
 package com.second.spring_study.exception.ywoo;
 
 import com.second.spring_study.dto.response.ywoo.ErrorResponse;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import javax.servlet.http.HttpServletRequest;
 
 @RestControllerAdvice
-public class ApiExceptionAdvice {
+public class ApiExceptionAdviceYwoo {
     //builder를 사용한 방법
    /* @ExceptionHandler({ApiException.class})
     public ResponseEntity<ErrorResponse> exceptionHandler(HttpServletRequest request, final ApiException e){

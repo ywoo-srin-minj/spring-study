@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @RestControllerAdvice
 //@Slf4j //log를 작성할 수 있게 해주는 어노테이션(exception 반환에 방해가 됨)
-public class ApiExceptionAdvice {
+public class ApiExceptionAdviceSrin {
 //    @ExceptionHandler({ApiException.class})
 //    public ResponseEntity<ErrorResponse> exceptionHandler(HttpServletRequest request, final ApiException e){
 //        //e.printStackTrace();
@@ -27,7 +27,7 @@ public class ApiExceptionAdvice {
 //    }
 
     @ExceptionHandler({ApiException.class})
-    public ResponseEntity<ErrorResponse> exceptionHandler(HttpServletRequest request, final ApiException e) {
+    public ResponseEntity<ErrorResponse> APIExceptionHandler(HttpServletRequest request, final ApiException e) {
         //log.error(e.getCause().getMessage());
         return new ResponseEntity<>(new ErrorResponse(e.getError().getStatus(), e.getError().getMessage()), HttpStatus.valueOf(e.getError().getStatus()));
     }
