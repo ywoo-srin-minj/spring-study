@@ -5,7 +5,7 @@ import com.second.spring_study.dto.request.minj.UserRequestDto;
 import com.second.spring_study.dto.response.minj.UserResponseDto;
 import com.second.spring_study.entity.user_minj.UserMinj;
 import com.second.spring_study.entity.user_minj.repository.UserMinjRepository;
-import com.second.spring_study.exception.minj.ApiException;
+import com.second.spring_study.exception.minj.ApiExceptionMinJ;
 import com.second.spring_study.exception.minj.ErrorCodeEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,7 +22,7 @@ public class UserMinjService {
     @Transactional
     public void createUser(UserRequestDto userRequestDto) {
         if(userRepository.existsByUserId(userRequestDto.getUserId())){
-            throw new ApiException(ErrorCodeEnum.USER_ALREADY_EXIST);
+            throw new ApiExceptionMinJ(ErrorCodeEnum.USER_ALREADY_EXIST);
         }
 
         UserMinj user = UserMinj.createUser(userRequestDto.getUserId(), userRequestDto.getUserName(), userRequestDto.getUserPassword());
@@ -33,7 +33,7 @@ public class UserMinjService {
     public void deleteUser(long id) {
         // 없는 아이디일 경우 추후에 예외처리 진행
         userRepository.findById(id).orElseThrow(() -> {
-            throw new ApiException(ErrorCodeEnum.USER_NOT_FOUND);
+            throw new ApiExceptionMinJ(ErrorCodeEnum.USER_NOT_FOUND);
         });
         userRepository.deleteById(id);
     }
@@ -54,7 +54,7 @@ public class UserMinjService {
     @Transactional
     public UserResponseDto detailsUser(long id) {
         UserMinj userMinj = userRepository.findById(id).orElseThrow(() ->{
-            throw new ApiException(ErrorCodeEnum.USER_NOT_FOUND);
+            throw new ApiExceptionMinJ(ErrorCodeEnum.USER_NOT_FOUND);
         });
         return UserResponseDto.of(userMinj);
     }
@@ -62,7 +62,7 @@ public class UserMinjService {
     @Transactional
     public void updateUser(long id, UpdateUserRequestDto updateUserRequestDto){
         userRepository.findById(id).orElseThrow(() ->{
-            throw new ApiException(ErrorCodeEnum.USER_NOT_FOUND);
+            throw new ApiExceptionMinJ(ErrorCodeEnum.USER_NOT_FOUND);
         });
         userRepository.updateUser(id, updateUserRequestDto);
     }

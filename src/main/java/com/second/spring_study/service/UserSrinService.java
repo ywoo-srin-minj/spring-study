@@ -5,7 +5,7 @@ import com.second.spring_study.dto.response.srin.UserResponseDto;
 import com.second.spring_study.dto.request.srin.UserUpdateRequestDto;
 import com.second.spring_study.entity.user_srin.UserSrin;
 import com.second.spring_study.entity.user_srin.repository.UserSrinRepository;
-import com.second.spring_study.exception.srin.ApiException;
+import com.second.spring_study.exception.srin.ApiExceptionSrin;
 import com.second.spring_study.exception.srin.ErrorCodeEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -27,7 +27,7 @@ public class UserSrinService {
         }
   */
         if(userRepository.existsByUserId(userRequestDto.getUserId())){
-            throw new ApiException(ErrorCodeEnum.USER_ALREADY_EXIST);
+            throw new ApiExceptionSrin(ErrorCodeEnum.USER_ALREADY_EXIST);
         }
         UserSrin userSrin = UserSrin.createUser(userRequestDto.getUserId(), userRequestDto.getUserName(), userRequestDto.getUserPassword());
         userRepository.save(userSrin);
@@ -63,6 +63,6 @@ public class UserSrinService {
     }
 
     private UserSrin userNotFoundException(long id){
-        return userRepository.findById(id).orElseThrow(() -> new ApiException(ErrorCodeEnum.USER_NOT_FOUND));
+        return userRepository.findById(id).orElseThrow(() -> new ApiExceptionSrin(ErrorCodeEnum.USER_NOT_FOUND));
     }
 }
