@@ -1,7 +1,10 @@
-package com.second.spring_study.exception.minj;
+package com.second.spring_study.exception;
 
 import com.second.spring_study.dto.response.minj.ErrorResponse;
 
+import com.second.spring_study.exception.minj.ApiExceptionMinJ;
+import com.second.spring_study.exception.srin.ApiExceptionSrin;
+import com.second.spring_study.exception.ywoo.ApiExceptionYwoo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -15,18 +18,19 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 @Slf4j
 @RestControllerAdvice
 public class ApiExceptionAdvice {
-    //    @ExceptionHandler({ApiException.class})
-//    public ResponseEntity<ErrorResponse> exceptionHandler(final ApiException e){
-//        log.error(e.getCause().getMessage());
-//        return ResponseEntity
-//                .status(e.getErrorCodeEnum().getStatus())
-//                .body(ErrorResponse.builder()
-//                        .status(e.getErrorCodeEnum().getStatus())
-//                        .message(e.getErrorCodeEnum().getMessage())
-//                        .build());
-//    }
-    @ExceptionHandler({ApiException.class})
-    protected ResponseEntity<ErrorResponse> exceptionHandler(final ApiException e) {
+
+    @ExceptionHandler({ApiExceptionMinJ.class})
+    protected ResponseEntity<ErrorResponse> ApiExceptionMinJ(final ApiExceptionMinJ e) {
+        return new ResponseEntity<>(new ErrorResponse(e.getErrorCodeEnum().getStatus(), e.getErrorCodeEnum().getMessage()), HttpStatus.valueOf(e.getErrorCodeEnum().getStatus()));
+    }
+
+    @ExceptionHandler({ApiExceptionSrin.class})
+    protected ResponseEntity<ErrorResponse> ApiExceptionSrin(final ApiExceptionSrin e) {
+        return new ResponseEntity<>(new ErrorResponse(e.getError().getStatus(), e.getError().getMessage()), HttpStatus.valueOf(e.getError().getStatus()));
+    }
+
+    @ExceptionHandler({ApiExceptionYwoo.class})
+    protected ResponseEntity<ErrorResponse> ApiExceptionYwoo(final ApiExceptionYwoo e) {
         return new ResponseEntity<>(new ErrorResponse(e.getErrorCodeEnum().getStatus(), e.getErrorCodeEnum().getMessage()), HttpStatus.valueOf(e.getErrorCodeEnum().getStatus()));
     }
 
