@@ -14,7 +14,7 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 
 @Slf4j
 @RestControllerAdvice
-public class ApiExceptionAdvice {
+public class ApiExceptionAdviceMinj {
     //    @ExceptionHandler({ApiException.class})
 //    public ResponseEntity<ErrorResponse> exceptionHandler(final ApiException e){
 //        log.error(e.getCause().getMessage());
