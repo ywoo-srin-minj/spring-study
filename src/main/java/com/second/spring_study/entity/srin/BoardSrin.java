@@ -17,16 +17,17 @@ import javax.persistence.*;
 public class BoardSrin extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "board_id")
+    @Column(name = "board_id", nullable = false)
     private long boardId;
 
-    @Column(name = "board_title")
+    @Column(name = "board_title", nullable = false)
     private String boardTitle;
 
+    @Column(name = "board_content", nullable = false)
     private String boardContent;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "user_id")
     private UserSrin userSrin;
 
 }
