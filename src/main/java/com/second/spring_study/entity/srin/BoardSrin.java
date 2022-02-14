@@ -26,7 +26,7 @@ public class BoardSrin extends BaseEntity {
     @Column(name = "board_content", nullable = false)
     private String boardContent;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private UserSrin userSrin;
 
