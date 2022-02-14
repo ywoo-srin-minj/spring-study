@@ -3,10 +3,6 @@ package com.second.spring_study.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.second.spring_study.dto.request.srin.UserRequestDto;
 import com.second.spring_study.dto.request.srin.UserUpdateRequestDto;
-import com.second.spring_study.entity.user_srin.UserSrin;
-import com.second.spring_study.entity.user_srin.repository.UserSrinRepository;
-import com.second.spring_study.service.UserSrinService;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +14,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import javax.transaction.Transactional;
-
-import java.util.Optional;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
