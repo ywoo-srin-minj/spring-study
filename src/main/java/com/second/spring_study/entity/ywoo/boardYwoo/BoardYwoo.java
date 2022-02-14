@@ -23,7 +23,7 @@ public class BoardYwoo extends BaseEntity {
 
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "user_id")
     private UserYwoo userYwoo;
 
 }
