@@ -1,4 +1,4 @@
-package com.second.spring_study.entity.user_ywoo.repository;
+package com.second.spring_study.entity.ywoo.userYwoo.repository;
 
 import com.second.spring_study.dto.request.ywoo.UserRequestUpdateDto;
 

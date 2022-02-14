@@ -1,9 +1,8 @@
-package com.second.spring_study.entity.user_ywoo;
+package com.second.spring_study.entity.ywoo.userYwoo;
 
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 
