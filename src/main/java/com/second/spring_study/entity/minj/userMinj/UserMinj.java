@@ -1,4 +1,4 @@
-package com.second.spring_study.entity.user_minj;
+package com.second.spring_study.entity.minj.userMinj;
 
 import lombok.AccessLevel;
 import lombok.Getter;

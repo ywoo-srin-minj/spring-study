@@ -1,10 +1,9 @@
-package com.second.spring_study.entity.user_minj.repository;
+package com.second.spring_study.entity.minj.userMinj.repository;
 
-import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.second.spring_study.dto.request.minj.UpdateUserRequestDto;
-import static com.second.spring_study.entity.user_minj.QUserMinj.userMinj;
-import com.second.spring_study.entity.user_minj.UserMinj;
+import static com.second.spring_study.entity.minj.QUserMinj.userMinj;
+import com.second.spring_study.entity.minj.userMinj.UserMinj;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 
 
