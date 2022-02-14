@@ -1,6 +1,6 @@
 package com.second.spring_study.dto.response.minj;
 
-import com.second.spring_study.entity.user_minj.UserMinj;
+import com.second.spring_study.entity.minj.userMinj.UserMinj;
 import lombok.Getter;
 
 @Getter
