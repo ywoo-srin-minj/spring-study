@@ -1,10 +1,10 @@
-package com.second.spring_study.entity.user_srin.repository;
+package com.second.spring_study.entity.srin.user_srin.repository;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.second.spring_study.dto.request.srin.UserUpdateRequestDto;
-import com.second.spring_study.entity.user_srin.UserSrin;
+import com.second.spring_study.entity.srin.user_srin.UserSrin;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
-import static com.second.spring_study.entity.user_srin.QUserSrin.userSrin;
+import static com.second.spring_study.entity.srin.user_srin.QUserSrin.userSrin;
 
 public class UserSrinRepositoryImpl extends QuerydslRepositorySupport implements UserSrinRepositoryExtension{
     private final JPAQueryFactory queryFactory;

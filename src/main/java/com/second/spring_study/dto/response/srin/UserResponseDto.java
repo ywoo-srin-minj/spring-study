@@ -1,6 +1,6 @@
 package com.second.spring_study.dto.response.srin;
 
-import com.second.spring_study.entity.user_srin.UserSrin;
+import com.second.spring_study.entity.srin.user_srin.UserSrin;
 import lombok.*;
 
 /*

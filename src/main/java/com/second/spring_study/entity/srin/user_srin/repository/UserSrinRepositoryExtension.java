@@ -1,4 +1,4 @@
-package com.second.spring_study.entity.user_srin.repository;
+package com.second.spring_study.entity.srin.user_srin.repository;
 
 import com.second.spring_study.dto.request.srin.UserUpdateRequestDto;
 
