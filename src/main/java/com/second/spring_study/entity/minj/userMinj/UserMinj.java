@@ -1,10 +1,13 @@
 package com.second.spring_study.entity.minj.userMinj;
 
+import com.second.spring_study.entity.minj.boardMinj.BoardMinj;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Entity
@@ -23,6 +26,9 @@ public class UserMinj {
 
     @Column(name="user_name", nullable = false, length = 10)
     private String userName;
+
+    @OneToMany(mappedBy = "userMinj", cascade = CascadeType.ALL)
+    private List<BoardMinj> boardMinjs = new ArrayList<>();
 
     public static UserMinj createUser(String userId, String userName, String userPassword) {
         UserMinj userMinj = new UserMinj();
