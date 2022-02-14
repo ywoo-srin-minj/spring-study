@@ -1,4 +1,4 @@
-package com.second.spring_study.entity.user_minj.repository;
+package com.second.spring_study.entity.minj.userMinj.repository;
 
 import com.second.spring_study.dto.request.minj.UpdateUserRequestDto;
 
