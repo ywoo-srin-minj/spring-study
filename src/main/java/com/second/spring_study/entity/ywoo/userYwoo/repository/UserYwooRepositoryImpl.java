@@ -1,13 +1,13 @@
-package com.second.spring_study.entity.user_ywoo.repository;
+package com.second.spring_study.entity.ywoo.userYwoo.repository;
 
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.JPQLQueryFactory;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.second.spring_study.dto.request.ywoo.UserRequestUpdateDto;
-import com.second.spring_study.entity.user_ywoo.UserYwoo;
+import com.second.spring_study.entity.ywoo.userYwoo.UserYwoo;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 
-import static com.second.spring_study.entity.user_ywoo.QUserYwoo.userYwoo;
+import static com.second.spring_study.entity.ywoo.userYwoo.QUserYwoo.userYwoo;
 
 public class UserYwooRepositoryImpl extends QuerydslRepositorySupport implements UserYwooRepositoryExtension {
 

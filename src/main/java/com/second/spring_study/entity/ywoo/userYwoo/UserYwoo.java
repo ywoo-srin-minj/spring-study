@@ -1,11 +1,13 @@
-package com.second.spring_study.entity.user_ywoo;
+package com.second.spring_study.entity.ywoo.userYwoo;
 
+import com.second.spring_study.entity.ywoo.boardYwoo.BoardYwoo;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -24,6 +26,9 @@ public class UserYwoo {
 
     @Column(length = 30, nullable = false, name = "user_password")
     private String userPassword;
+
+    @OneToMany(mappedBy = "userYwoo",cascade = CascadeType.ALL)
+    private List<BoardYwoo> boardYwoos = new ArrayList<>();
 
     public static UserYwoo createUser(String userId, String userName, String userPassword) {
         UserYwoo userYwoo = new UserYwoo();

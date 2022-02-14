@@ -1,6 +1,6 @@
 package com.second.spring_study.dto.response.ywoo;
 
-import com.second.spring_study.entity.user_ywoo.UserYwoo;
+import com.second.spring_study.entity.ywoo.userYwoo.UserYwoo;
 import lombok.*;
 
 
