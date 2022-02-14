@@ -24,6 +24,6 @@ public class BoardMinj extends BaseEntity {
     private String boardContent;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private UserMinj userMinj;
 }
