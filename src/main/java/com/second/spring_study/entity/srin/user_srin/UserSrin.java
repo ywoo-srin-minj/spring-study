@@ -1,11 +1,14 @@
-package com.second.spring_study.entity.user_srin;
+package com.second.spring_study.entity.srin.user_srin;
 
 import com.second.spring_study.dto.request.srin.UserUpdateRequestDto;
+import com.second.spring_study.entity.srin.BoardSrin;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 //lombok 라이브러리를 이용
 @Entity     //@Table을 통해 테이블을 직접적으로 매핑하지 않으면 현 클래스명의 카멜케이스가 기본적인 테이블명으로 setting
@@ -29,6 +32,10 @@ public class UserSrin {
 
     @Column(name = "user_password", nullable = false, length = 30)
     private String userPassword;
+
+    @OneToMany(mappedBy="userSrin", cascade = CascadeType.ALL)
+    private List<BoardSrin> boards = new ArrayList<>();
+
 
     public static UserSrin createUser(String userId, String userName, String userPassword){
         UserSrin userSrin = new UserSrin();

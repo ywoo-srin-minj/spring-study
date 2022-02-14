@@ -2,7 +2,9 @@ package com.second.spring_study;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-// 설명
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+
+@EnableJpaAuditing
 @SpringBootApplication
 public class SpringStudyApplication {
 
