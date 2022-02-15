@@ -1,6 +1,7 @@
 package com.second.spring_study.service.post;
 
 import com.second.spring_study.dto.request.minj.CreatePostRequestDto;
+import com.second.spring_study.dto.response.minj.PostResponseDto;
 import com.second.spring_study.entity.minj.postMinj.PostMinj;
 import com.second.spring_study.entity.minj.postMinj.repository.PostRepository;
 import com.second.spring_study.entity.minj.userMinj.UserMinj;
@@ -9,6 +10,8 @@ import com.second.spring_study.exception.minj.ApiExceptionMinJ;
 import com.second.spring_study.exception.minj.ErrorCodeEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @Service
@@ -22,5 +25,9 @@ public class PostMinjService {
         });
         PostMinj postMinj = PostMinj.createPost(createPostRequestDto.getTitle(), createPostRequestDto.getContent(), userMinj);
         postRepository.save(postMinj);
+    }
+
+    public List<PostResponseDto> getPosts(Long userPk) {
+        return userMinjRepository.getPosts(userPk);
     }
 }
