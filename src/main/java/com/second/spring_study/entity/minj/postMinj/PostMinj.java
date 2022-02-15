@@ -14,16 +14,17 @@ import javax.persistence.*;
 public class PostMinj extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "board_id", nullable = false)
+    @Column(name = "post_id", nullable = false)
     private Long id;
 
-    @Column(name = "board_title", nullable = false)
-    private String boardTitle;
+    @Column(name = "post_title", nullable = false)
+    private String postTitle;
 
-    @Column(name = "board_content", nullable = false)
-    private String boardContent;
+    @Column(name = "post_content", nullable = false)
+    private String postContent;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private UserMinj userMinj;
+
 }
