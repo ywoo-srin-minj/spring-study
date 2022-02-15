@@ -14,8 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 @Service
 public class PostYwooService {
-     PostYwooRepository postYwooRepository;
-     UserYwooRepository userYwooRepository;
+     final PostYwooRepository postYwooRepository;
+     final UserYwooRepository userYwooRepository;
 
     @Transactional
     public void createPost(PostRequestDto postRequestDto, long userpk){
