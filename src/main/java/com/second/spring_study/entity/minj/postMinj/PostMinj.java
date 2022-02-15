@@ -23,7 +23,7 @@ public class PostMinj extends BaseEntity {
     @Column(name = "post_content", nullable = false)
     private String postContent;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", nullable = false)
     private UserMinj userMinj;
 

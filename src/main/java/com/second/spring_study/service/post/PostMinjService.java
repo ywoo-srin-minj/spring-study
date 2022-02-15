@@ -30,4 +30,11 @@ public class PostMinjService {
     public List<PostResponseDto> getPosts(Long userPk) {
         return userMinjRepository.getPosts(userPk);
     }
+
+    public PostResponseDto getPost(long postId){
+        PostMinj postMinj = postRepository.findById(postId).orElseThrow(() -> {
+            throw new ApiExceptionMinJ(ErrorCodeEnum.POST_NOT_FOUND);
+        });
+        return PostResponseDto.of(postMinj);
+    }
 }
