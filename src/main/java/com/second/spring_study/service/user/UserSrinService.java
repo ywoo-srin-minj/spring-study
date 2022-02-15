@@ -1,4 +1,4 @@
-package com.second.spring_study.service;
+package com.second.spring_study.service.user;
 
 import com.second.spring_study.dto.request.srin.UserRequestDto;
 import com.second.spring_study.dto.response.srin.UserResponseDto;

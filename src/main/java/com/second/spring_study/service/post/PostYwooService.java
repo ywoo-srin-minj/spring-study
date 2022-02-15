@@ -1,4 +1,4 @@
-package com.second.spring_study.service;
+package com.second.spring_study.service.post;
 
 import com.second.spring_study.dto.request.ywoo.PostRequestCreateDto;
 import com.second.spring_study.entity.ywoo.boardYwoo.PostYwoo;

@@ -1,4 +1,4 @@
-package com.second.spring_study.service;
+package com.second.spring_study.service.post;
 
 import com.second.spring_study.dto.request.minj.CreatePostRequestDto;
 import com.second.spring_study.entity.minj.postMinj.PostMinj;

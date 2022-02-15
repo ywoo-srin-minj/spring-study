@@ -1,9 +1,9 @@
-package com.second.spring_study.controller;
+package com.second.spring_study.controller.user;
 
 import com.second.spring_study.dto.request.ywoo.UserRequestUpdateDto;
 import com.second.spring_study.dto.response.ywoo.UserResponseDto;
 import com.second.spring_study.dto.request.ywoo.UserRequestDto;
-import com.second.spring_study.service.UserYwooService;
+import com.second.spring_study.service.user.UserYwooService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

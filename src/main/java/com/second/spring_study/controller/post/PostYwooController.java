@@ -1,7 +1,7 @@
-package com.second.spring_study.controller;
+package com.second.spring_study.controller.post;
 
 import com.second.spring_study.dto.request.ywoo.PostRequestCreateDto;
-import com.second.spring_study.service.PostYwooService;
+import com.second.spring_study.service.post.PostYwooService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

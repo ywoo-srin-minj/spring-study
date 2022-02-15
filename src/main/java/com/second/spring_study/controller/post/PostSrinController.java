@@ -1,7 +1,7 @@
-package com.second.spring_study.controller;
+package com.second.spring_study.controller.post;
 
 import com.second.spring_study.dto.request.srin.PostCreateRequestDto;
-import com.second.spring_study.service.PostSrinService;
+import com.second.spring_study.service.post.PostSrinService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
