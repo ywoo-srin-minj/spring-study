@@ -12,8 +12,8 @@ public class PostSrinController {
     private final PostSrinService postSrinService;
 
     @PostMapping("/{userpk}")
-    public void createBoard(@PathVariable Long userpk,  @RequestBody PostCreateRequestDto postCreateRequestDto){
-        postSrinService.createBoard(userpk, postCreateRequestDto);
+    public void createPost(@PathVariable Long userpk,  @RequestBody PostCreateRequestDto postCreateRequestDto){
+        postSrinService.createPost(userpk, postCreateRequestDto);
     }
 
 }
