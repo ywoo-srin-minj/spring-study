@@ -2,7 +2,9 @@ package com.second.spring_study.entity.minj.userMinj.repository;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.second.spring_study.dto.request.minj.UpdateUserRequestDto;
-import static com.second.spring_study.entity.minj.QUserMinj.userMinj;
+
+import static com.second.spring_study.entity.minj.userMinj.QUserMinj.userMinj;
+
 import com.second.spring_study.entity.minj.userMinj.UserMinj;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 

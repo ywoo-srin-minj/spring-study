@@ -1,6 +1,6 @@
 package com.second.spring_study.entity.minj.userMinj;
 
-import com.second.spring_study.entity.minj.boardMinj.BoardMinj;
+import com.second.spring_study.entity.minj.postMinj.PostMinj;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,7 +28,7 @@ public class UserMinj {
     private String userName;
 
     @OneToMany(mappedBy = "userMinj", cascade = CascadeType.ALL)
-    private List<BoardMinj> boardMinjs = new ArrayList<>();
+    private List<PostMinj> postMinjs = new ArrayList<>();
 
     public static UserMinj createUser(String userId, String userName, String userPassword) {
         UserMinj userMinj = new UserMinj();
