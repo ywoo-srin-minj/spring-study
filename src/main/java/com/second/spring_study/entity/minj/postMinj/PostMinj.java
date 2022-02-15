@@ -27,4 +27,11 @@ public class PostMinj extends BaseEntity {
     @JoinColumn(name = "user_id", nullable = false)
     private UserMinj userMinj;
 
+    public static PostMinj createPost(String title, String content, UserMinj userMinj) {
+        PostMinj postMinj = new PostMinj();
+        postMinj.postTitle = title;
+        postMinj.postContent = content;
+        postMinj.userMinj = userMinj;
+        return postMinj;
+    }
 }
