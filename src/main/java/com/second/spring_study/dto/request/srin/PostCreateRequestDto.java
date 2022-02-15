@@ -12,9 +12,9 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class PostCreateRequestDto {
     @NotNull
-    private String postTitle;
+    private String title;
 
     @NotNull
-    private String postContent;
+    private String content;
 }
 
