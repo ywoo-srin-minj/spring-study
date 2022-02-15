@@ -33,16 +33,16 @@ public class PostSrinService {
         postSrinRepository.save(params);
         
 //        저장 값 확인을 위한 출력문
-        PostSrin saveValue = postSrinRepository.save(params);
-
-        System.out.println(saveValue.getPostId());
-        System.out.println(saveValue.getPostTitle());
-        System.out.println(saveValue.getPostContent());
-        System.out.println(saveValue.getCreatedAt());
-        System.out.println(saveValue.getLastModifiedAt());
-        System.out.println(saveValue.getUserSrin());
-        System.out.println(saveValue.getUserSrin().getUserId());
-        System.out.println(saveValue.getUserSrin().getUserName());
-        System.out.println(saveValue.getUserSrin().getUserPassword());
+//        PostSrin saveValue = postSrinRepository.save(params);
+//
+//        System.out.println(saveValue.getPostId());
+//        System.out.println(saveValue.getPostTitle());
+//        System.out.println(saveValue.getPostContent());
+//        System.out.println(saveValue.getCreatedAt());
+//        System.out.println(saveValue.getLastModifiedAt());
+//        System.out.println(saveValue.getUserSrin());
+//        System.out.println(saveValue.getUserSrin().getUserId());
+//        System.out.println(saveValue.getUserSrin().getUserName());
+//        System.out.println(saveValue.getUserSrin().getUserPassword());
     }
 }
