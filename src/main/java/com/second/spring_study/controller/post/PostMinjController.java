@@ -21,7 +21,7 @@ public class PostMinjController {
     }
 
     @GetMapping
-    public List<PostResponseDto> getPosts(@RequestParam(value = "user", required = false) Long userPk) {
+    public List<PostResponseDto> getPosts(@RequestParam(value = "userpk", required = false) Long userPk) {
         return postMinjService.getPosts(userPk);
     }
 
