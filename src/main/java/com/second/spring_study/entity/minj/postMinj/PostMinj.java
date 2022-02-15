@@ -1,4 +1,4 @@
-package com.second.spring_study.entity.minj.boardMinj;
+package com.second.spring_study.entity.minj.postMinj;
 
 import com.second.spring_study.entity.BaseEntity;
 import com.second.spring_study.entity.minj.userMinj.UserMinj;
@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class BoardMinj extends BaseEntity {
+public class PostMinj extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "board_id", nullable = false)
