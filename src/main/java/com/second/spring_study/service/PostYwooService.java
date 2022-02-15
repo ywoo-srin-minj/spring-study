@@ -14,11 +14,11 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 @Service
 public class PostYwooService {
-    final PostYwooRepository postYwooRepository;
-    final UserYwooRepository userYwooRepository;
+     PostYwooRepository postYwooRepository;
+     UserYwooRepository userYwooRepository;
 
     @Transactional
-    public void createBoards(PostRequestDto postRequestDto, long userpk){
+    public void createPost(PostRequestDto postRequestDto, long userpk){
         //user의 id가 없을 경우 에러 발생
         UserYwoo userYwoo = userYwooRepository.findById(userpk).orElseThrow(()->{
             throw new ApiExceptionYwoo(ErrorCodeEnum.USER_NOT_FOUND);
