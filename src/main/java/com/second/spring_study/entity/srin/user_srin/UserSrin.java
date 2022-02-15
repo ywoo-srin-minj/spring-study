@@ -1,7 +1,7 @@
 package com.second.spring_study.entity.srin.user_srin;
 
 import com.second.spring_study.dto.request.srin.UserUpdateRequestDto;
-import com.second.spring_study.entity.srin.BoardSrin;
+import com.second.spring_study.entity.srin.post_srin.PostSrin;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,7 +34,7 @@ public class UserSrin {
     private String userPassword;
 
     @OneToMany(mappedBy="userSrin", cascade = CascadeType.ALL)
-    private List<BoardSrin> boards = new ArrayList<>();
+    private List<PostSrin> boards = new ArrayList<>();
 
 
     public static UserSrin createUser(String userId, String userName, String userPassword){
