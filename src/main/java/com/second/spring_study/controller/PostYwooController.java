@@ -13,6 +13,6 @@ public class PostYwooController {
 
     @PostMapping("/{userpk}")
     public void createPost(@PathVariable long userpk, @RequestBody PostRequestDto postRequestDto){
-        postYwooService.createBoards(postRequestDto,userpk);
+        postYwooService.createPost(postRequestDto,userpk);
     }
 }
