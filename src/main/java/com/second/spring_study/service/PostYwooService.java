@@ -24,8 +24,8 @@ public class PostYwooService {
             throw new ApiExceptionYwoo(ErrorCodeEnum.USER_NOT_FOUND);
         });
 
-        PostYwoo boardYwoo = PostYwoo.createPost(userYwoo, postRequestDto.getPostTitle(), postRequestDto.getPostContent());
+        PostYwoo postYwoo = PostYwoo.createPost(userYwoo, postRequestDto.getPostTitle(), postRequestDto.getPostContent());
 
-        postYwooRepository.save(boardYwoo);
+        postYwooRepository.save(postYwoo);
     }
 }
