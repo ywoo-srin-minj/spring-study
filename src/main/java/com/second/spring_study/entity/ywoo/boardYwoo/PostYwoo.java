@@ -25,7 +25,7 @@ public class PostYwoo extends BaseEntity {
 
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", insertable = false, updatable = false)
+    @JoinColumn(name = "user_id")
     private UserYwoo userYwoo;
 
     public static PostYwoo createPost(UserYwoo userYwoo, String title, String content){
