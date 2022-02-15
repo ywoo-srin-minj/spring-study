@@ -1,6 +1,6 @@
 package com.second.spring_study.service;
 
-import com.second.spring_study.dto.request.ywoo.PostRequestDto;
+import com.second.spring_study.dto.request.ywoo.PostRequestCreateDto;
 import com.second.spring_study.entity.ywoo.boardYwoo.PostYwoo;
 import com.second.spring_study.entity.ywoo.boardYwoo.repository.PostYwooRepository;
 import com.second.spring_study.entity.ywoo.userYwoo.UserYwoo;
@@ -18,13 +18,13 @@ public class PostYwooService {
      final UserYwooRepository userYwooRepository;
 
     @Transactional
-    public void createPost(PostRequestDto postRequestDto, long userpk){
+    public void createPost(PostRequestCreateDto postRequestCreateDto, long userpk){
         //user의 id가 없을 경우 에러 발생
         UserYwoo userYwoo = userYwooRepository.findById(userpk).orElseThrow(()->{
             throw new ApiExceptionYwoo(ErrorCodeEnum.USER_NOT_FOUND);
         });
 
-        PostYwoo postYwoo = PostYwoo.createPost(userYwoo, postRequestDto.getPostTitle(), postRequestDto.getPostContent());
+        PostYwoo postYwoo = PostYwoo.createPost(userYwoo, postRequestCreateDto.getTitle(), postRequestCreateDto.getContent());
 
         postYwooRepository.save(postYwoo);
     }
