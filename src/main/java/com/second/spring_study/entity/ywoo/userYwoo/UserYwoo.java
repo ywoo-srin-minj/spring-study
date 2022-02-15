@@ -1,6 +1,6 @@
 package com.second.spring_study.entity.ywoo.userYwoo;
 
-import com.second.spring_study.entity.ywoo.boardYwoo.BoardYwoo;
+import com.second.spring_study.entity.ywoo.boardYwoo.PostYwoo;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,7 +28,7 @@ public class UserYwoo {
     private String userPassword;
 
     @OneToMany(mappedBy = "userYwoo",cascade = CascadeType.ALL)
-    private List<BoardYwoo> boardYwoos = new ArrayList<>();
+    private List<PostYwoo> postYwoos = new ArrayList<>();
 
     public static UserYwoo createUser(String userId, String userName, String userPassword) {
         UserYwoo userYwoo = new UserYwoo();
@@ -37,7 +37,6 @@ public class UserYwoo {
         userYwoo.userPassword = userPassword;
         return userYwoo;
     }
-
 
     public UserYwoo updateUser(String userName, String userPassword){
         this.userName = userName;
