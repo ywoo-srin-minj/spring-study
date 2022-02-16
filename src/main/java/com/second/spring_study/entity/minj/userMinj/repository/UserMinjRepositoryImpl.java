@@ -38,6 +38,7 @@ public class UserMinjRepositoryImpl extends QuerydslRepositorySupport implements
         return queryFactory
                 .select(Projections.fields(
                         PostResponseDto.class,
+                        postMinj.id,
                         postMinj.postTitle.as("title"),
                         postMinj.postContent.as("content"),
                         postMinj.userMinj.userName,

@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 
 @Getter
 public class PostResponseDto {
+    private long id;
     private String title;
     private String content;
     private String userName;
@@ -13,6 +14,7 @@ public class PostResponseDto {
 
     public static PostResponseDto of(PostMinj postMinj){
         PostResponseDto postResponseDto = new PostResponseDto();
+        postResponseDto.id = postMinj.getId();
         postResponseDto.title = postMinj.getPostTitle();
         postResponseDto.content = postMinj.getPostContent();
         postResponseDto.userName = postMinj.getUserMinj().getUserName();
