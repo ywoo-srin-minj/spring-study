@@ -1,7 +1,6 @@
 package com.second.spring_study.service.post;
 
 import com.second.spring_study.dto.request.srin.PostCreateRequestDto;
-import com.second.spring_study.dto.response.srin.PostListResponseDto;
 import com.second.spring_study.dto.response.srin.PostInquiryResponseDto;
 import com.second.spring_study.entity.srin.post_srin.PostSrin;
 import com.second.spring_study.entity.srin.post_srin.repository.PostSrinRepository;
@@ -40,7 +39,7 @@ public class PostSrinService {
     }
 
     @Transactional
-    public List<PostListResponseDto> findAllPosts(Long userpk){
+    public List<PostInquiryResponseDto> findAllPosts(Long userpk){
         return userSrinRepository.findAllPosts(userpk);
     }
 

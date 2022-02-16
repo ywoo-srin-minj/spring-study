@@ -1,7 +1,6 @@
 package com.second.spring_study.controller.post;
 
 import com.second.spring_study.dto.request.srin.PostCreateRequestDto;
-import com.second.spring_study.dto.response.srin.PostListResponseDto;
 import com.second.spring_study.dto.response.srin.PostInquiryResponseDto;
 import com.second.spring_study.service.post.PostSrinService;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +21,7 @@ public class PostSrinController {
     }
 
     @GetMapping("")
-    public List<PostListResponseDto> findAllPosts(@RequestParam("userpk") Long userpk){
+    public List<PostInquiryResponseDto> findAllPosts(@RequestParam("userpk") Long userpk){
         return postSrinService.findAllPosts(userpk);
     }
 

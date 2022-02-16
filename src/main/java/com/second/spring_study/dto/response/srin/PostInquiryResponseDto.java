@@ -2,6 +2,7 @@ package com.second.spring_study.dto.response.srin;
 
 
 import com.second.spring_study.entity.srin.post_srin.PostSrin;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -10,6 +11,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Builder
+@AllArgsConstructor
 public class PostInquiryResponseDto {
     @NotNull
     private Long id;
