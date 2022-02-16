@@ -1,12 +1,17 @@
 package com.second.spring_study.entity.ywoo.userYwoo.repository;
 
+import com.querydsl.core.types.Projections;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.JPQLQueryFactory;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.second.spring_study.dto.request.ywoo.UserRequestUpdateDto;
+import com.second.spring_study.dto.response.ywoo.PostFindResponseDto;
 import com.second.spring_study.entity.ywoo.userYwoo.UserYwoo;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 
+import java.util.List;
+
+import static com.second.spring_study.entity.ywoo.boardYwoo.QPostYwoo.postYwoo;
 import static com.second.spring_study.entity.ywoo.userYwoo.QUserYwoo.userYwoo;
 
 public class UserYwooRepositoryImpl extends QuerydslRepositorySupport implements UserYwooRepositoryExtension {
@@ -27,11 +32,22 @@ public class UserYwooRepositoryImpl extends QuerydslRepositorySupport implements
                 .execute();
     }
 
-    //값으로 null이 들어올 경우
-    private BooleanExpression userPassWordEq(String userPassword){
-        return userPassword !=null ? userYwoo.userPassword.eq(userPassword) : null;
+    @Override
+    public List<PostFindResponseDto> findAllPosts(Long userpk){
+        return queryFactory.select(Projections.fields(PostFindResponseDto.class,
+                        postYwoo.id,
+                        postYwoo.postTitle.as("title"),
+                        postYwoo.postContent.as("content"),
+                        postYwoo.userYwoo.userName,
+                        postYwoo.createdAt))
+                .from(postYwoo)
+                .where(userpkEquals(userpk))
+                .orderBy(postYwoo.createdAt.desc())
+                .fetch();
     }
-    private BooleanExpression userNameEq(String userName){
-        return userName !=null ? userYwoo.userName.eq(userName) : null;
+
+    private BooleanExpression userpkEquals(Long userpk) {
+        if(userpk != null) return userYwoo.id.eq(userpk);
+        else return null;
     }
 }
