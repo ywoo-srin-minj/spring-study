@@ -1,6 +1,7 @@
 package com.second.spring_study.service.post;
 
 import com.second.spring_study.dto.request.ywoo.PostRequestCreateDto;
+import com.second.spring_study.dto.response.ywoo.PostFindResponseDto;
 import com.second.spring_study.entity.ywoo.boardYwoo.PostYwoo;
 import com.second.spring_study.entity.ywoo.boardYwoo.repository.PostYwooRepository;
 import com.second.spring_study.entity.ywoo.userYwoo.UserYwoo;
@@ -10,6 +11,9 @@ import com.second.spring_study.exception.ywoo.ErrorCodeEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -25,7 +29,20 @@ public class PostYwooService {
         });
 
         PostYwoo postYwoo = PostYwoo.createPost(userYwoo, postRequestCreateDto.getTitle(), postRequestCreateDto.getContent());
-
         postYwooRepository.save(postYwoo);
+    }
+
+    @Transactional
+    public List<PostFindResponseDto> findAllPosts(Long userpk){
+        return userYwooRepository.findAllPosts(userpk);
+    }
+
+    @Transactional
+    public PostFindResponseDto findPost(long postId){
+        PostYwoo postYwoo = postYwooRepository.findById(postId).orElseThrow(()->{
+            throw new ApiExceptionYwoo(ErrorCodeEnum.POST_NOT_FOUND);
+        });
+
+        return PostFindResponseDto.of(postYwoo);
     }
 }
