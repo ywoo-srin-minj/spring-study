@@ -53,4 +53,12 @@ public class PostYwooService {
         });
         postYwoo.updatePost(postRequestDto.getTitle(), postRequestDto.getContent());
     }
+
+    @Transactional
+    public void deletePost(long id){
+        postYwooRepository.findById(id).orElseThrow(()->{
+            throw new ApiExceptionYwoo(ErrorCodeEnum.POST_NOT_FOUND);
+        });
+        postYwooRepository.deleteById(id);
+    }
 }

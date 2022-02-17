@@ -33,4 +33,9 @@ public class PostYwooController {
     public void updatePost(@PathVariable long id, @RequestBody PostRequestDto postRequestDto){
         postYwooService.updatePost(id, postRequestDto);
     }
+
+    @DeleteMapping("/{id}")
+    public void deletePost(@PathVariable long id){
+        postYwooService.deletePost(id);
+    }
 }
