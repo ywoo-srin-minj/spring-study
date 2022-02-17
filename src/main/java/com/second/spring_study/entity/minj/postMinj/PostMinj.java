@@ -1,5 +1,6 @@
 package com.second.spring_study.entity.minj.postMinj;
 
+import com.second.spring_study.dto.request.minj.PostRequestDto;
 import com.second.spring_study.entity.BaseEntity;
 import com.second.spring_study.entity.minj.userMinj.UserMinj;
 import lombok.AccessLevel;
@@ -27,10 +28,10 @@ public class PostMinj extends BaseEntity {
     @JoinColumn(name = "user_id", nullable = false)
     private UserMinj userMinj;
 
-    public static PostMinj createPost(String title, String content, UserMinj userMinj) {
+    public static PostMinj createPost(PostRequestDto postRequestDto, UserMinj userMinj) {
         PostMinj postMinj = new PostMinj();
-        postMinj.postTitle = title;
-        postMinj.postContent = content;
+        postMinj.postTitle = postRequestDto.getTitle();
+        postMinj.postContent = postRequestDto.getContent();
         postMinj.userMinj = userMinj;
         return postMinj;
     }
