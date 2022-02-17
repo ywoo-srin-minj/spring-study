@@ -31,8 +31,8 @@ public class PostMinjController {
     }
 
     @PutMapping("/{id}")
-    public void updatePost(@PathVariable(name = "id") @Valid long postId, @RequestBody PostRequestDto createPostRequestDto){
-        postMinjService.updatePost(postId, createPostRequestDto);
+    public void updatePost(@PathVariable(name = "id") @Valid long postId, @RequestBody PostRequestDto postRequestDto){
+        postMinjService.updatePost(postId, postRequestDto);
     }
 
 }
