@@ -8,7 +8,8 @@ import org.springframework.http.HttpStatus;
 @AllArgsConstructor
 public enum ErrorCodeEnum {
     USER_NOT_FOUND(HttpStatus.NOT_FOUND.value(), "User Not Found"),     //두 exception을 연결 할 때는 ,로 연결하기...(;말고)
-    USER_ALREADY_EXIST(HttpStatus.CONFLICT.value(), "User Already Exist");
+    USER_ALREADY_EXIST(HttpStatus.CONFLICT.value(), "User Already Exist"),
+    POST_NOT_FOUND(HttpStatus.NOT_FOUND.value(), "Post Not Found");
 
     private final int status;
     private final String message;
