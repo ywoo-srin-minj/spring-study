@@ -33,7 +33,7 @@ public class UserSrinRepositoryImpl extends QuerydslRepositorySupport implements
     @Override
     public List<PostInquiryResponseDto> findAllPosts(Long userpk) {
         return queryFactory
-                .select(Projections.fields(PostInquiryResponseDto.class,
+                .select(Projections.constructor(PostInquiryResponseDto.class,
                                 postSrin.id,
                                 postSrin.postTitle.as("title"),
                                 postSrin.postContent.as("content"),
