@@ -10,7 +10,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/post-ywoo")
+@RequestMapping("/posts-ywoo")
 public class PostYwooController {
     private final PostYwooService postYwooService;
 
