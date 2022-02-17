@@ -50,7 +50,7 @@ public class PostSrinService {
     }
 
     @Transactional
-    public void deletePost(Long id){
+    public void deletePost(long id){
         postSrinRepository.findById(id).orElseThrow((() -> new ApiExceptionSrin(ErrorCodeEnum.POST_NOT_FOUND)));
         postSrinRepository.deleteById(id);
     }

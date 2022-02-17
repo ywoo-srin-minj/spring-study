@@ -31,7 +31,7 @@ public class PostSrinController {
     }
 
     @DeleteMapping("/{id}")
-    public void deletePost(@PathVariable Long id){
+    public void deletePost(@PathVariable long id){
         postSrinService.deletePost(id);
     }
 }
