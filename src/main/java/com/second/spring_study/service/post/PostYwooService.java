@@ -1,6 +1,7 @@
 package com.second.spring_study.service.post;
 
-import com.second.spring_study.dto.request.ywoo.PostRequestCreateDto;
+
+import com.second.spring_study.dto.request.ywoo.PostRequestDto;
 import com.second.spring_study.dto.response.ywoo.PostFindResponseDto;
 import com.second.spring_study.entity.ywoo.boardYwoo.PostYwoo;
 import com.second.spring_study.entity.ywoo.boardYwoo.repository.PostYwooRepository;
@@ -13,7 +14,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -22,13 +22,14 @@ public class PostYwooService {
      final UserYwooRepository userYwooRepository;
 
     @Transactional
-    public void createPost(PostRequestCreateDto postRequestCreateDto, long userpk){
+    public void createPost(PostRequestDto postRequestDto, long userpk){
         //user의 id가 없을 경우 에러 발생
         UserYwoo userYwoo = userYwooRepository.findById(userpk).orElseThrow(()->{
             throw new ApiExceptionYwoo(ErrorCodeEnum.USER_NOT_FOUND);
         });
 
-        PostYwoo postYwoo = PostYwoo.createPost(userYwoo, postRequestCreateDto.getTitle(), postRequestCreateDto.getContent());
+
+        PostYwoo postYwoo = PostYwoo.createPost(userYwoo, postRequestDto.getTitle(), postRequestDto.getContent());
         postYwooRepository.save(postYwoo);
     }
 
@@ -44,5 +45,22 @@ public class PostYwooService {
         });
 
         return PostFindResponseDto.of(postYwoo);
+    }
+
+
+    @Transactional
+    public void updatePost(long id, PostRequestDto postRequestDto){
+       PostYwoo postYwoo=postYwooRepository.findById(id).orElseThrow(()->{
+            throw new ApiExceptionYwoo(ErrorCodeEnum.POST_NOT_FOUND);
+        });
+        postYwoo.updatePost(postRequestDto.getTitle(), postRequestDto.getContent());
+    }
+
+    @Transactional
+    public void deletePost(long id){
+        postYwooRepository.findById(id).orElseThrow(()->{
+            throw new ApiExceptionYwoo(ErrorCodeEnum.POST_NOT_FOUND);
+        });
+        postYwooRepository.deleteById(id);
     }
 }
