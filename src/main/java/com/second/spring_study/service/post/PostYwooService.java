@@ -1,5 +1,6 @@
 package com.second.spring_study.service.post;
 
+
 import com.second.spring_study.dto.request.ywoo.PostRequestDto;
 import com.second.spring_study.dto.response.ywoo.PostFindResponseDto;
 import com.second.spring_study.entity.ywoo.boardYwoo.PostYwoo;
@@ -27,8 +28,8 @@ public class PostYwooService {
             throw new ApiExceptionYwoo(ErrorCodeEnum.USER_NOT_FOUND);
         });
 
-        PostYwoo postYwoo = PostYwoo.createPost(userYwoo, postRequestDto.getTitle(), postRequestDto.getContent());
 
+        PostYwoo postYwoo = PostYwoo.createPost(userYwoo, postRequestDto.getTitle(), postRequestDto.getContent());
         postYwooRepository.save(postYwoo);
     }
 
@@ -45,6 +46,7 @@ public class PostYwooService {
 
         return PostFindResponseDto.of(postYwoo);
     }
+
 
     @Transactional
     public void updatePost(long id, PostRequestDto postRequestDto){

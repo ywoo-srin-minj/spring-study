@@ -1,5 +1,6 @@
 package com.second.spring_study.controller.post;
 
+
 import com.second.spring_study.dto.request.ywoo.PostRequestDto;
 import com.second.spring_study.dto.response.ywoo.PostFindResponseDto;
 import com.second.spring_study.service.post.PostYwooService;
@@ -37,5 +38,15 @@ public class PostYwooController {
     @DeleteMapping("/{id}")
     public void deletePost(@PathVariable long id){
         postYwooService.deletePost(id);
+    }
+
+    @GetMapping()
+    public List<PostFindResponseDto> findAllPost(@RequestParam(required = false) Long userpk){
+        return postYwooService.findAllPosts(userpk);
+    }
+
+    @PostMapping("/details/{id}")
+    public PostFindResponseDto findPost(@PathVariable long id){
+        return postYwooService.findPost(id);
     }
 }

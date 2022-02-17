@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 @AllArgsConstructor
 public enum ErrorCodeEnum {
     USER_NOT_FOUND(HttpStatus.NOT_FOUND.value(), "User Not Found"),
+    POST_NOT_FOUND(HttpStatus.NOT_FOUND.value(), "Post Not Found"),
     USER_ALREADY_EXIST(HttpStatus.CONFLICT.value(), "User Already Exist");
 
     private final int status;
