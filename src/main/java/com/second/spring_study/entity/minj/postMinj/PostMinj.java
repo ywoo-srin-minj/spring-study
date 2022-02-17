@@ -35,4 +35,10 @@ public class PostMinj extends BaseEntity {
         postMinj.userMinj = userMinj;
         return postMinj;
     }
+
+    public PostMinj updatePost(PostRequestDto postRequestDto){
+        this.postTitle = postRequestDto.getTitle();
+        this.postContent = postRequestDto.getContent();
+        return this;
+    }
 }
