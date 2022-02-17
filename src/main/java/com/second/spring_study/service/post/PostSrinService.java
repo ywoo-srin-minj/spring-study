@@ -55,4 +55,11 @@ public class PostSrinService {
         PostSrin postSrin = postSrinRepository.findById(id).orElseThrow((() -> new ApiExceptionSrin(ErrorCodeEnum.POST_NOT_FOUND)));
         postSrin.updatePost(postUpdateRequestDto);
     }
+  
+    @Transactional
+    public void deletePost(long id){
+        postSrinRepository.findById(id).orElseThrow((() -> new ApiExceptionSrin(ErrorCodeEnum.POST_NOT_FOUND)));
+        postSrinRepository.deleteById(id);
+    }
+  
 }

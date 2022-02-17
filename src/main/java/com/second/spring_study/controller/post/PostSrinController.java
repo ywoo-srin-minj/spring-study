@@ -31,8 +31,15 @@ public class PostSrinController {
         return postSrinService.findByIdPost(id);
     }
 
+
     @PutMapping("/{id}")
     public void updatePost(@PathVariable Long id, @RequestBody PostUpdateRequestDto postUpdateRequestDto){
         postSrinService.updatePost(id, postUpdateRequestDto);
+    }
+
+      
+    @DeleteMapping("/{id}")
+    public void deletePost(@PathVariable long id){
+        postSrinService.deletePost(id);
     }
 }
