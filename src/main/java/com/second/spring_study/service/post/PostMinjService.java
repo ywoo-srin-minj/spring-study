@@ -37,4 +37,11 @@ public class PostMinjService {
         });
         return PostResponseDto.of(postMinj);
     }
+
+    public void deletePost(long postId){
+        postRepository.findById(postId).orElseThrow(() ->{
+            throw new ApiExceptionMinJ(ErrorCodeEnum.POST_NOT_FOUND);
+        });
+        postRepository.deleteById(postId);
+    }
 }

@@ -30,4 +30,8 @@ public class PostMinjController {
         return postMinjService.getPost(postId);
     }
 
+    @DeleteMapping("/{id}")
+    public void deletePost(@PathVariable(name="id") @Valid long postId){
+        postMinjService.deletePost(postId);
+    }
 }
