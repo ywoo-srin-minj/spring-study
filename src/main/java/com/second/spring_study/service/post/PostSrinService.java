@@ -1,6 +1,7 @@
 package com.second.spring_study.service.post;
 
 import com.second.spring_study.dto.request.srin.PostCreateRequestDto;
+import com.second.spring_study.dto.request.srin.PostUpdateRequestDto;
 import com.second.spring_study.dto.response.srin.PostInquiryResponseDto;
 import com.second.spring_study.entity.srin.post_srin.PostSrin;
 import com.second.spring_study.entity.srin.post_srin.repository.PostSrinRepository;
@@ -50,8 +51,15 @@ public class PostSrinService {
     }
 
     @Transactional
+    public void updatePost(Long id, PostUpdateRequestDto postUpdateRequestDto){
+        PostSrin postSrin = postSrinRepository.findById(id).orElseThrow((() -> new ApiExceptionSrin(ErrorCodeEnum.POST_NOT_FOUND)));
+        postSrin.updatePost(postUpdateRequestDto);
+    }
+  
+    @Transactional
     public void deletePost(long id){
         postSrinRepository.findById(id).orElseThrow((() -> new ApiExceptionSrin(ErrorCodeEnum.POST_NOT_FOUND)));
         postSrinRepository.deleteById(id);
     }
+  
 }

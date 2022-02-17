@@ -1,6 +1,7 @@
 package com.second.spring_study.controller.post;
 
 import com.second.spring_study.dto.request.srin.PostCreateRequestDto;
+import com.second.spring_study.dto.request.srin.PostUpdateRequestDto;
 import com.second.spring_study.dto.response.srin.PostInquiryResponseDto;
 import com.second.spring_study.service.post.PostSrinService;
 import lombok.RequiredArgsConstructor;
@@ -30,6 +31,13 @@ public class PostSrinController {
         return postSrinService.findByIdPost(id);
     }
 
+
+    @PutMapping("/{id}")
+    public void updatePost(@PathVariable Long id, @RequestBody PostUpdateRequestDto postUpdateRequestDto){
+        postSrinService.updatePost(id, postUpdateRequestDto);
+    }
+
+      
     @DeleteMapping("/{id}")
     public void deletePost(@PathVariable long id){
         postSrinService.deletePost(id);
