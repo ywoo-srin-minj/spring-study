@@ -8,5 +8,5 @@ import java.util.List;
 public interface UserSrinRepositoryExtension {
     void updateUser(long id, UserUpdateRequestDto userUpdateRequestDto);
 
-    public List<PostInquiryResponseDto> findAllPosts(Long userpk);
+    List<PostInquiryResponseDto> findAllPosts(Long userpk);
 }

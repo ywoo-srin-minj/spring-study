@@ -1,5 +1,6 @@
 package com.second.spring_study.entity.srin.post_srin;
 
+import com.querydsl.core.types.OrderSpecifier;
 import com.second.spring_study.entity.BaseEntity;
 import com.second.spring_study.entity.srin.user_srin.UserSrin;
 import lombok.*;
@@ -14,7 +15,7 @@ public class PostSrin extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "post_id", nullable = false)
-    private long postId;
+    private Long id;
 
     @Column(name = "post_title", nullable = false)
     private String postTitle;

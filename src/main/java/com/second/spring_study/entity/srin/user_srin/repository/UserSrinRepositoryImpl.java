@@ -1,16 +1,16 @@
 package com.second.spring_study.entity.srin.user_srin.repository;
 
+import com.querydsl.core.types.Projections;
+import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.second.spring_study.dto.request.srin.UserUpdateRequestDto;
 import com.second.spring_study.dto.response.srin.PostInquiryResponseDto;
-import com.second.spring_study.entity.srin.post_srin.PostSrin;
-import com.second.spring_study.entity.srin.post_srin.QPostSrin;
 import com.second.spring_study.entity.srin.user_srin.UserSrin;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
+import static com.second.spring_study.entity.srin.post_srin.QPostSrin.postSrin;
 import static com.second.spring_study.entity.srin.user_srin.QUserSrin.userSrin;
 
 public class UserSrinRepositoryImpl extends QuerydslRepositorySupport implements UserSrinRepositoryExtension{
@@ -32,15 +32,19 @@ public class UserSrinRepositoryImpl extends QuerydslRepositorySupport implements
 
     @Override
     public List<PostInquiryResponseDto> findAllPosts(Long userpk) {
-        //querydsl을 통해 매개변수로 받은 userpk의 post만 findpost변수로 받음
-        List<PostSrin> findpost = queryFactory.selectFrom(QPostSrin.postSrin)
-                .where(QPostSrin.postSrin.userSrin.id.eq(userpk))
+        return queryFactory
+                .select(Projections.fields(PostInquiryResponseDto.class,
+                                postSrin.id,
+                                postSrin.postTitle.as("title"),
+                                postSrin.postContent.as("content"),
+                                postSrin.userSrin.userName,
+                                postSrin.createdAt))
+                .from(postSrin)
+                .where(userpkEq(userpk))
                 .fetch();
-
-        //findpost는 PostSrin 형식의 List이므로 이를 DTO의 형태로 변환후 반환
-        return (List<PostInquiryResponseDto>) findpost.stream()
-                .map(postSrin -> new PostInquiryResponseDto(postSrin.getPostId(), postSrin.getPostTitle(), postSrin.getPostContent(), postSrin.getUserSrin().getUserName(), postSrin.getCreatedAt()))
-                .collect(Collectors.toList());
     }
 
+    private BooleanExpression userpkEq(Long userpk){
+        return userpk != null ? userSrin.id.eq(userpk) : null;
+    }
 }

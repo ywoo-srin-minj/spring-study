@@ -2,9 +2,7 @@ package com.second.spring_study.dto.response.srin;
 
 
 import com.second.spring_study.entity.srin.post_srin.PostSrin;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
@@ -12,6 +10,7 @@ import java.time.LocalDateTime;
 @Getter
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 public class PostInquiryResponseDto {
     @NotNull
     private Long id;
@@ -30,7 +29,7 @@ public class PostInquiryResponseDto {
 
     public static PostInquiryResponseDto of(PostSrin postSrin) {
         return PostInquiryResponseDto.builder()
-                .id(postSrin.getPostId())
+                .id(postSrin.getId())
                 .title(postSrin.getPostTitle())
                 .content(postSrin.getPostContent())
                 .userName(postSrin.getUserSrin().getUserName())

@@ -21,7 +21,7 @@ public class PostSrinController {
     }
 
     @GetMapping("")
-    public List<PostInquiryResponseDto> findAllPosts(@RequestParam("userpk") Long userpk){
+    public List<PostInquiryResponseDto> findAllPosts(@RequestParam(value = "userpk", required = false) Long userpk){
         return postSrinService.findAllPosts(userpk);
     }
 
