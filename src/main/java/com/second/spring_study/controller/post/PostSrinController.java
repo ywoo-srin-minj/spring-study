@@ -29,4 +29,9 @@ public class PostSrinController {
     public PostInquiryResponseDto findByIdPost(@PathVariable Long id){
         return postSrinService.findByIdPost(id);
     }
+
+    @DeleteMapping("/{id}")
+    public void deletePost(@PathVariable long id){
+        postSrinService.deletePost(id);
+    }
 }
