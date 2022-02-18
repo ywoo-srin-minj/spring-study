@@ -45,20 +45,23 @@ public class PostSrinService {
 
     @Transactional
     public PostInquiryResponseDto findByIdPost(Long id){
-        PostSrin findPost = postSrinRepository.findById(id).orElseThrow((() -> new ApiExceptionSrin(ErrorCodeEnum.POST_NOT_FOUND)));
+        PostSrin findPost = postNotFoundException(id);
         return PostInquiryResponseDto.of(findPost);
     }
 
     @Transactional
     public void updatePost(Long id, PostRequestDto postRequestDto){
-        PostSrin postSrin = postSrinRepository.findById(id).orElseThrow((() -> new ApiExceptionSrin(ErrorCodeEnum.POST_NOT_FOUND)));
+        PostSrin postSrin = postNotFoundException(id);
         postSrin.updatePost(postRequestDto);
     }
   
     @Transactional
     public void deletePost(long id){
-        postSrinRepository.findById(id).orElseThrow((() -> new ApiExceptionSrin(ErrorCodeEnum.POST_NOT_FOUND)));
+        postNotFoundException(id);
         postSrinRepository.deleteById(id);
     }
-  
+
+    public PostSrin postNotFoundException(Long postId){
+        return postSrinRepository.findById(postId).orElseThrow((() -> new ApiExceptionSrin(ErrorCodeEnum.POST_NOT_FOUND)));
+    }
 }
