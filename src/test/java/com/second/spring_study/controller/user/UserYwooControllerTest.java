@@ -1,4 +1,4 @@
-package com.second.spring_study.controller;
+package com.second.spring_study.controller.user;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.second.spring_study.dto.request.ywoo.UserRequestDto;
