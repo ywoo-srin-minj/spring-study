@@ -1,6 +1,6 @@
 package com.second.spring_study.entity.srin.post_srin;
 
-import com.second.spring_study.dto.request.srin.PostUpdateRequestDto;
+import com.second.spring_study.dto.request.srin.PostRequestDto;
 import com.second.spring_study.entity.BaseEntity;
 import com.second.spring_study.entity.srin.user_srin.UserSrin;
 import lombok.*;
@@ -35,9 +35,9 @@ public class PostSrin extends BaseEntity {
         this.userSrin = userSrin;
     }
 
-    public PostSrin updatePost(PostUpdateRequestDto postUpdateRequestDto){
-        this.postTitle = postUpdateRequestDto.getTitle();
-        this.postContent = postUpdateRequestDto.getContent();
+    public PostSrin updatePost(PostRequestDto postRequestDto){
+        this.postTitle = postRequestDto.getTitle();
+        this.postContent = postRequestDto.getContent();
         return this;
     }
 
