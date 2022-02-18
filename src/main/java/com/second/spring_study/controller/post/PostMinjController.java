@@ -26,13 +26,17 @@ public class PostMinjController {
     }
 
     @PostMapping("/details/{id}")
-    public PostResponseDto getPost(@PathVariable(name="id") @Valid long postId){
+    public PostResponseDto getPost(@PathVariable(name = "id") @Valid long postId) {
         return postMinjService.getPost(postId);
     }
 
     @PutMapping("/{id}")
-    public void updatePost(@PathVariable(name = "id") @Valid long postId, @RequestBody PostRequestDto postRequestDto){
+    public void updatePost(@PathVariable(name = "id") @Valid long postId, @RequestBody PostRequestDto postRequestDto) {
         postMinjService.updatePost(postId, postRequestDto);
     }
 
+    @DeleteMapping("/{id}")
+    public void deletePost(@PathVariable(name = "id") @Valid long postId) {
+        postMinjService.deletePost(postId);
+    }
 }

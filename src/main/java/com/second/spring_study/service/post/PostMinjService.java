@@ -34,7 +34,7 @@ public class PostMinjService {
     }
 
     @Transactional
-    public PostResponseDto getPost(long postId){
+    public PostResponseDto getPost(long postId) {
         PostMinj postMinj = postRepository.findById(postId).orElseThrow(() -> {
             throw new ApiExceptionMinJ(ErrorCodeEnum.POST_NOT_FOUND);
         });
@@ -42,10 +42,18 @@ public class PostMinjService {
     }
 
     @Transactional
-    public void updatePost(long postId, PostRequestDto postRequestDto){
+    public void updatePost(long postId, PostRequestDto postRequestDto) {
         PostMinj postMinj = postRepository.findById(postId).orElseThrow(() -> {
             throw new ApiExceptionMinJ(ErrorCodeEnum.POST_NOT_FOUND);
         });
         postRepository.save(postMinj.updatePost(postRequestDto));
+    }
+
+    @Transactional
+    public void deletePost(long postId) {
+        postRepository.findById(postId).orElseThrow(() -> {
+            throw new ApiExceptionMinJ(ErrorCodeEnum.POST_NOT_FOUND);
+        });
+        postRepository.deleteById(postId);
     }
 }
