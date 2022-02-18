@@ -14,9 +14,10 @@ spring:
     database: h2
     hibernate:
       ddl-auto: update
+    defer-datasource-initialization: true
     open-in-view: false
   sql:
     init:
       mode: always
       data-locations: classpath:data.sql
-      schema-locations: classpath:table.sql
+      schema-locations:

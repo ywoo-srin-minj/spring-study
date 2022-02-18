@@ -4,3 +4,6 @@ INSERT INTO user_srin values(1, 'id001', '001', 'password');
 INSERT INTO user_srin values(2, 'id002', '002', 'password');
 INSERT INTO user_ywoo values(1, 'id001', '001', 'password');
 INSERT INTO user_ywoo values(2, 'id002', '002', 'password');
+
+INSERT INTO post_srin values(1, sysdate(), sysdate(), '1번째 제목', '1번째 내용', 1);
+INSERT INTO post_srin values(2, sysdate(), sysdate(), '2번째 제목', '2번째 내용', 2);
