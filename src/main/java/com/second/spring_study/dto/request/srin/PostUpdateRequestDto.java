@@ -1,20 +1,15 @@
-package com.second.spring_study.dto.request.ywoo;
+package com.second.spring_study.dto.request.srin;
+
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotNull;
-
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class PostRequestCreateDto {
-    @NotNull
-    String title;
-    @NotNull
-    String content;
-
-
+public class PostUpdateRequestDto {
+    private String title;
+    private String content;
 }

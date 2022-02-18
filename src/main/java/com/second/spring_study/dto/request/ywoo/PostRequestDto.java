@@ -1,4 +1,4 @@
-package com.second.spring_study.dto.request.minj;
+package com.second.spring_study.dto.request.ywoo;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -10,9 +10,11 @@ import javax.validation.constraints.NotNull;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class CreatePostRequestDto {
+public class PostRequestDto {
     @NotNull
-    private String title;
+    String title;
     @NotNull
-    private String content;
+    String content;
+
+
 }

@@ -1,6 +1,6 @@
 package com.second.spring_study.entity.srin.post_srin;
 
-import com.querydsl.core.types.OrderSpecifier;
+import com.second.spring_study.dto.request.srin.PostUpdateRequestDto;
 import com.second.spring_study.entity.BaseEntity;
 import com.second.spring_study.entity.srin.user_srin.UserSrin;
 import lombok.*;
@@ -33,6 +33,12 @@ public class PostSrin extends BaseEntity {
         this.postTitle = postTitle;
         this.postContent = postContent;
         this.userSrin = userSrin;
+    }
+
+    public PostSrin updatePost(PostUpdateRequestDto postUpdateRequestDto){
+        this.postTitle = postUpdateRequestDto.getTitle();
+        this.postContent = postUpdateRequestDto.getContent();
+        return this;
     }
 
 }

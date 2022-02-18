@@ -16,8 +16,8 @@ public class PostMinjController {
     private final PostMinjService postMinjService;
 
     @PostMapping("/{userpk}")
-    public void createPost(@PathVariable(name = "userpk") @Valid long userPk, @RequestBody @Valid CreatePostRequestDto createPostRequestDto) {
-        postMinjService.createPost(userPk, createPostRequestDto);
+    public void createPost(@PathVariable(name = "userpk") @Valid long userPk, @RequestBody @Valid PostRequestDto postRequestDto) {
+        postMinjService.createPost(userPk, postRequestDto);
     }
 
     @GetMapping
@@ -28,6 +28,11 @@ public class PostMinjController {
     @PostMapping("/details/{id}")
     public PostResponseDto getPost(@PathVariable(name="id") @Valid long postId){
         return postMinjService.getPost(postId);
+    }
+
+    @PutMapping("/{id}")
+    public void updatePost(@PathVariable(name = "id") @Valid long postId, @RequestBody PostRequestDto postRequestDto){
+        postMinjService.updatePost(postId, postRequestDto);
     }
 
     @DeleteMapping("/{id}")

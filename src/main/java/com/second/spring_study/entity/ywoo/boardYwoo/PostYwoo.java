@@ -37,4 +37,9 @@ public class PostYwoo extends BaseEntity {
         return postYwoo;
     }
 
+    public PostYwoo  updatePost(String title, String content){
+        this.postTitle=title;
+        this.postContent=content;
+        return this;
+    }
 }
