@@ -1,6 +1,6 @@
 package com.second.spring_study.entity.ywoo.userYwoo;
 
-import com.second.spring_study.entity.ywoo.boardYwoo.PostYwoo;
+import com.second.spring_study.entity.ywoo.postYwoo.PostYwoo;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
