@@ -4,6 +4,7 @@ import com.second.spring_study.dto.request.ywoo.UserRequestUpdateDto;
 import com.second.spring_study.dto.response.ywoo.UserResponseDto;
 import com.second.spring_study.dto.request.ywoo.UserRequestDto;
 import com.second.spring_study.service.user.UserYwooService;
+import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +13,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/users-ywoo")
+@Api(tags = {"회원 관리 API"})
 public class UserYwooController {
 
     private final UserYwooService userYwooService;
