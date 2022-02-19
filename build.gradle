@@ -27,6 +27,10 @@ repositories {
 }
 
 dependencies {
+
+    //swagger
+    implementation 'io.springfox:springfox-boot-starter:3.0.0'
+
     //querydsl
     implementation 'com.querydsl:querydsl-jpa'
     implementation 'com.querydsl:querydsl-apt'
