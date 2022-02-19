@@ -1,7 +1,6 @@
 package com.second.spring_study.service.post;
 
-import com.second.spring_study.dto.request.srin.PostCreateRequestDto;
-import com.second.spring_study.dto.request.srin.PostUpdateRequestDto;
+import com.second.spring_study.dto.request.srin.PostRequestDto;
 import com.second.spring_study.dto.response.srin.PostInquiryResponseDto;
 import com.second.spring_study.entity.srin.post_srin.PostSrin;
 import com.second.spring_study.entity.srin.post_srin.repository.PostSrinRepository;
@@ -22,14 +21,14 @@ public class PostSrinService {
     private final PostSrinRepository postSrinRepository;
 
     @Transactional
-    public void createPost(Long userpk, PostCreateRequestDto postCreateRequestDto){
+    public void createPost(Long userpk, PostRequestDto postRequestDto){
         //해당 userpk에 맞는 UserSrin 객체 반환
         UserSrin userSrinParam = userSrinRepository.findById(userpk).orElseThrow(() -> new ApiExceptionSrin(ErrorCodeEnum.USER_NOT_FOUND));
         
         //builder 이용
         PostSrin params = PostSrin.builder()
-                .postTitle(postCreateRequestDto.getTitle())
-                .postContent(postCreateRequestDto.getContent())
+                .postTitle(postRequestDto.getTitle())
+                .postContent(postRequestDto.getContent())
                 .userSrin(userSrinParam)
                 .build();
 
@@ -46,20 +45,23 @@ public class PostSrinService {
 
     @Transactional
     public PostInquiryResponseDto findByIdPost(Long id){
-        PostSrin findPost = postSrinRepository.findById(id).orElseThrow((() -> new ApiExceptionSrin(ErrorCodeEnum.POST_NOT_FOUND)));
+        PostSrin findPost = postNotFoundException(id);
         return PostInquiryResponseDto.of(findPost);
     }
 
     @Transactional
-    public void updatePost(Long id, PostUpdateRequestDto postUpdateRequestDto){
-        PostSrin postSrin = postSrinRepository.findById(id).orElseThrow((() -> new ApiExceptionSrin(ErrorCodeEnum.POST_NOT_FOUND)));
-        postSrin.updatePost(postUpdateRequestDto);
+    public void updatePost(Long id, PostRequestDto postRequestDto){
+        PostSrin postSrin = postNotFoundException(id);
+        postSrin.updatePost(postRequestDto);
     }
   
     @Transactional
     public void deletePost(long id){
-        postSrinRepository.findById(id).orElseThrow((() -> new ApiExceptionSrin(ErrorCodeEnum.POST_NOT_FOUND)));
+        postNotFoundException(id);
         postSrinRepository.deleteById(id);
     }
-  
+
+    public PostSrin postNotFoundException(Long postId){
+        return postSrinRepository.findById(postId).orElseThrow((() -> new ApiExceptionSrin(ErrorCodeEnum.POST_NOT_FOUND)));
+    }
 }
