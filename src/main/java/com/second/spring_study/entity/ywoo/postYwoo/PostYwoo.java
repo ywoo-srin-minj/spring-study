@@ -1,4 +1,4 @@
-package com.second.spring_study.entity.ywoo.boardYwoo;
+package com.second.spring_study.entity.ywoo.postYwoo;
 
 import com.second.spring_study.entity.BaseEntity;
 import com.second.spring_study.entity.ywoo.userYwoo.UserYwoo;

@@ -39,14 +39,4 @@ public class PostYwooController {
     public void deletePost(@PathVariable long id){
         postYwooService.deletePost(id);
     }
-
-    @GetMapping()
-    public List<PostFindResponseDto> findAllPost(@RequestParam(required = false) Long userpk){
-        return postYwooService.findAllPosts(userpk);
-    }
-
-    @PostMapping("/details/{id}")
-    public PostFindResponseDto findPost(@PathVariable long id){
-        return postYwooService.findPost(id);
-    }
 }

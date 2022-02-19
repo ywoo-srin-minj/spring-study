@@ -1,6 +1,6 @@
-package com.second.spring_study.entity.ywoo.boardYwoo.repository;
+package com.second.spring_study.entity.ywoo.postYwoo.repository;
 
-import com.second.spring_study.entity.ywoo.boardYwoo.PostYwoo;
+import com.second.spring_study.entity.ywoo.postYwoo.PostYwoo;
 import org.springframework.data.repository.CrudRepository;
 
 
