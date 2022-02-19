@@ -4,6 +4,7 @@ package com.second.spring_study.controller.post;
 import com.second.spring_study.dto.request.ywoo.PostRequestDto;
 import com.second.spring_study.dto.response.ywoo.PostFindResponseDto;
 import com.second.spring_study.service.post.PostYwooService;
+import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/posts-ywoo")
+@Api(tags = {"게시글 관리 API"})
 public class PostYwooController {
     private final PostYwooService postYwooService;
 
@@ -38,15 +40,5 @@ public class PostYwooController {
     @DeleteMapping("/{id}")
     public void deletePost(@PathVariable long id){
         postYwooService.deletePost(id);
-    }
-
-    @GetMapping()
-    public List<PostFindResponseDto> findAllPost(@RequestParam(required = false) Long userpk){
-        return postYwooService.findAllPosts(userpk);
-    }
-
-    @PostMapping("/details/{id}")
-    public PostFindResponseDto findPost(@PathVariable long id){
-        return postYwooService.findPost(id);
     }
 }
