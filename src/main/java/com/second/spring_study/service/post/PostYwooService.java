@@ -3,8 +3,8 @@ package com.second.spring_study.service.post;
 
 import com.second.spring_study.dto.request.ywoo.PostRequestDto;
 import com.second.spring_study.dto.response.ywoo.PostFindResponseDto;
-import com.second.spring_study.entity.ywoo.boardYwoo.PostYwoo;
-import com.second.spring_study.entity.ywoo.boardYwoo.repository.PostYwooRepository;
+import com.second.spring_study.entity.ywoo.postYwoo.PostYwoo;
+import com.second.spring_study.entity.ywoo.postYwoo.repository.PostYwooRepository;
 import com.second.spring_study.entity.ywoo.userYwoo.UserYwoo;
 import com.second.spring_study.entity.ywoo.userYwoo.repository.UserYwooRepository;
 import com.second.spring_study.exception.ywoo.ApiExceptionYwoo;

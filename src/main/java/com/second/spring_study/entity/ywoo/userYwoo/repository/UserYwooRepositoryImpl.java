@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport
 
 import java.util.List;
 
-import static com.second.spring_study.entity.ywoo.boardYwoo.QPostYwoo.postYwoo;
+import static com.second.spring_study.entity.ywoo.postYwoo.QPostYwoo.postYwoo;
 import static com.second.spring_study.entity.ywoo.userYwoo.QUserYwoo.userYwoo;
 
 public class UserYwooRepositoryImpl extends QuerydslRepositorySupport implements UserYwooRepositoryExtension {

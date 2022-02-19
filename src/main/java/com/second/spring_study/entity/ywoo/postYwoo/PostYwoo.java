@@ -1,4 +1,4 @@
-package com.second.spring_study.entity.ywoo.boardYwoo;
+package com.second.spring_study.entity.ywoo.postYwoo;
 
 import com.second.spring_study.entity.BaseEntity;
 import com.second.spring_study.entity.ywoo.userYwoo.UserYwoo;
@@ -37,9 +37,8 @@ public class PostYwoo extends BaseEntity {
         return postYwoo;
     }
 
-    public PostYwoo  updatePost(String title, String content){
+    public void  updatePost(String title, String content){
         this.postTitle=title;
         this.postContent=content;
-        return this;
     }
 }

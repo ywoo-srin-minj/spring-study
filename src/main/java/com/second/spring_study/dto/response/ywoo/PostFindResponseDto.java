@@ -1,6 +1,6 @@
 package com.second.spring_study.dto.response.ywoo;
 
-import com.second.spring_study.entity.ywoo.boardYwoo.PostYwoo;
+import com.second.spring_study.entity.ywoo.postYwoo.PostYwoo;
 import lombok.*;
 
 import java.time.LocalDateTime;
