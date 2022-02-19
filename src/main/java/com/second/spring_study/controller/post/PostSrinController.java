@@ -1,7 +1,6 @@
 package com.second.spring_study.controller.post;
 
-import com.second.spring_study.dto.request.srin.PostCreateRequestDto;
-import com.second.spring_study.dto.request.srin.PostUpdateRequestDto;
+import com.second.spring_study.dto.request.srin.PostRequestDto;
 import com.second.spring_study.dto.response.srin.PostInquiryResponseDto;
 import com.second.spring_study.service.post.PostSrinService;
 import lombok.RequiredArgsConstructor;
@@ -17,8 +16,8 @@ public class PostSrinController {
     private final PostSrinService postSrinService;
 
     @PostMapping("/{userpk}")
-    public void createPost(@PathVariable Long userpk,  @RequestBody PostCreateRequestDto postCreateRequestDto){
-        postSrinService.createPost(userpk, postCreateRequestDto);
+    public void createPost(@PathVariable Long userpk,  @RequestBody PostRequestDto postRequestDto){
+        postSrinService.createPost(userpk, postRequestDto);
     }
 
     @GetMapping("")
@@ -33,8 +32,8 @@ public class PostSrinController {
 
 
     @PutMapping("/{id}")
-    public void updatePost(@PathVariable Long id, @RequestBody PostUpdateRequestDto postUpdateRequestDto){
-        postSrinService.updatePost(id, postUpdateRequestDto);
+    public void updatePost(@PathVariable Long id, @RequestBody PostRequestDto postRequestDto){
+        postSrinService.updatePost(id, postRequestDto);
     }
 
       
