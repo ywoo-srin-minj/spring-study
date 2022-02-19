@@ -97,7 +97,7 @@ public class PostYwooControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(postRequestDto)))
-                .andExpect(status().isOk())
+                .andExpect(status().isNotFound())
                 .andDo(print());
     }
 
